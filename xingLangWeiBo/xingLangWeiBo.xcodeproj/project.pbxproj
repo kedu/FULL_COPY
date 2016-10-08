@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A381DA7CA0700C0DA9A /* AppDelegate.swift */; };
-		18DF9A3B1DA7CA0700C0DA9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A3A1DA7CA0700C0DA9A /* ViewController.swift */; };
-		18DF9A3E1DA7CA0700C0DA9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DF9A3C1DA7CA0700C0DA9A /* Main.storyboard */; };
 		18DF9A401DA7CA0700C0DA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DF9A3F1DA7CA0700C0DA9A /* Assets.xcassets */; };
-		18DF9A431DA7CA0700C0DA9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DF9A411DA7CA0700C0DA9A /* LaunchScreen.storyboard */; };
+		18DF9A5B1DA89E2600C0DA9A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A5A1DA89E2600C0DA9A /* MainViewController.swift */; };
+		18DF9A5D1DA89E5200C0DA9A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A5C1DA89E5200C0DA9A /* HomeTableViewController.swift */; };
+		18DF9A5F1DA89E6C00C0DA9A /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A5E1DA89E6C00C0DA9A /* MessageTableViewController.swift */; };
+		18DF9A611DA89E7800C0DA9A /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A601DA89E7800C0DA9A /* DiscoverTableViewController.swift */; };
+		18DF9A631DA89E8300C0DA9A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A621DA89E8300C0DA9A /* ProfileTableViewController.swift */; };
+		18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A661DA8FBCA00C0DA9A /* MainTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18DF9A351DA7CA0700C0DA9A /* xingLangWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xingLangWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF9A381DA7CA0700C0DA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18DF9A3A1DA7CA0700C0DA9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		18DF9A3D1DA7CA0700C0DA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18DF9A3F1DA7CA0700C0DA9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		18DF9A421DA7CA0700C0DA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18DF9A441DA7CA0700C0DA9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DF9A5A1DA89E2600C0DA9A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		18DF9A5C1DA89E5200C0DA9A /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		18DF9A5E1DA89E6C00C0DA9A /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		18DF9A601DA89E7800C0DA9A /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		18DF9A621DA89E8300C0DA9A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		18DF9A661DA8FBCA00C0DA9A /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,97 @@
 		18DF9A371DA7CA0700C0DA9A /* xingLangWeiBo */ = {
 			isa = PBXGroup;
 			children = (
+				18DF9A4A1DA89B3F00C0DA9A /* Classes */,
 				18DF9A381DA7CA0700C0DA9A /* AppDelegate.swift */,
-				18DF9A3A1DA7CA0700C0DA9A /* ViewController.swift */,
-				18DF9A3C1DA7CA0700C0DA9A /* Main.storyboard */,
 				18DF9A3F1DA7CA0700C0DA9A /* Assets.xcassets */,
-				18DF9A411DA7CA0700C0DA9A /* LaunchScreen.storyboard */,
 				18DF9A441DA7CA0700C0DA9A /* Info.plist */,
 			);
 			path = xingLangWeiBo;
+			sourceTree = "<group>";
+		};
+		18DF9A4A1DA89B3F00C0DA9A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A4C1DA89B3F00C0DA9A /* Modeul */,
+				18DF9A4B1DA89B3F00C0DA9A /* Model */,
+				18DF9A531DA89B3F00C0DA9A /* ViewModel */,
+				18DF9A521DA89B3F00C0DA9A /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18DF9A4B1DA89B3F00C0DA9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18DF9A4C1DA89B3F00C0DA9A /* Modeul */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A4F1DA89B3F00C0DA9A /* Main */,
+				18DF9A4E1DA89B3F00C0DA9A /* Home */,
+				18DF9A501DA89B3F00C0DA9A /* Message */,
+				18DF9A4D1DA89B3F00C0DA9A /* Discover */,
+				18DF9A511DA89B3F00C0DA9A /* Profile */,
+			);
+			path = Modeul;
+			sourceTree = "<group>";
+		};
+		18DF9A4D1DA89B3F00C0DA9A /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A601DA89E7800C0DA9A /* DiscoverTableViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		18DF9A4E1DA89B3F00C0DA9A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A5C1DA89E5200C0DA9A /* HomeTableViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18DF9A4F1DA89B3F00C0DA9A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A5A1DA89E2600C0DA9A /* MainViewController.swift */,
+				18DF9A661DA8FBCA00C0DA9A /* MainTabBar.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		18DF9A501DA89B3F00C0DA9A /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A5E1DA89E6C00C0DA9A /* MessageTableViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		18DF9A511DA89B3F00C0DA9A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A621DA89E8300C0DA9A /* ProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		18DF9A521DA89B3F00C0DA9A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		18DF9A531DA89B3F00C0DA9A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18DF9A431DA7CA0700C0DA9A /* LaunchScreen.storyboard in Resources */,
 				18DF9A401DA7CA0700C0DA9A /* Assets.xcassets in Resources */,
-				18DF9A3E1DA7CA0700C0DA9A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,31 +223,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18DF9A3B1DA7CA0700C0DA9A /* ViewController.swift in Sources */,
+				18DF9A631DA89E8300C0DA9A /* ProfileTableViewController.swift in Sources */,
+				18DF9A5D1DA89E5200C0DA9A /* HomeTableViewController.swift in Sources */,
+				18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */,
 				18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */,
+				18DF9A5F1DA89E6C00C0DA9A /* MessageTableViewController.swift in Sources */,
+				18DF9A611DA89E7800C0DA9A /* DiscoverTableViewController.swift in Sources */,
+				18DF9A5B1DA89E2600C0DA9A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		18DF9A3C1DA7CA0700C0DA9A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18DF9A3D1DA7CA0700C0DA9A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		18DF9A411DA7CA0700C0DA9A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18DF9A421DA7CA0700C0DA9A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		18DF9A451DA7CA0700C0DA9A /* Debug */ = {
@@ -199,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -237,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -248,10 +321,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = xingLangWeiBo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.xingLangWeiBo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -259,10 +334,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = xingLangWeiBo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.xingLangWeiBo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,10 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     //开始测试
     //配置了ssh通道,测试一下
-
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        window=UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor=UIColor.whiteColor()
+        window?.makeKeyAndVisible()
+        
+        //设置根控制器
+        window?.rootViewController=MainViewController()
         return true
     }
 
