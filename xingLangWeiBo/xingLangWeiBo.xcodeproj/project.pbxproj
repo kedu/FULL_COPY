@@ -15,6 +15,7 @@
 		18DF9A611DA89E7800C0DA9A /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A601DA89E7800C0DA9A /* DiscoverTableViewController.swift */; };
 		18DF9A631DA89E8300C0DA9A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A621DA89E8300C0DA9A /* ProfileTableViewController.swift */; };
 		18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A661DA8FBCA00C0DA9A /* MainTabBar.swift */; };
+		18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		18DF9A601DA89E7800C0DA9A /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		18DF9A621DA89E8300C0DA9A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		18DF9A661DA8FBCA00C0DA9A /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		18DF9A4C1DA89B3F00C0DA9A /* Modeul */ = {
 			isa = PBXGroup;
 			children = (
+				18DF9A681DA920BD00C0DA9A /* Base */,
 				18DF9A4F1DA89B3F00C0DA9A /* Main */,
 				18DF9A4E1DA89B3F00C0DA9A /* Home */,
 				18DF9A501DA89B3F00C0DA9A /* Message */,
@@ -151,6 +154,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18DF9A681DA920BD00C0DA9A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +236,7 @@
 			files = (
 				18DF9A631DA89E8300C0DA9A /* ProfileTableViewController.swift in Sources */,
 				18DF9A5D1DA89E5200C0DA9A /* HomeTableViewController.swift in Sources */,
+				18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */,
 				18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */,
 				18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */,
 				18DF9A5F1DA89E6C00C0DA9A /* MessageTableViewController.swift in Sources */,

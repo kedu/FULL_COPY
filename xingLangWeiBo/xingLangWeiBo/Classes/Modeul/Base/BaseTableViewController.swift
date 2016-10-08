@@ -1,5 +1,5 @@
 //
-//  HomeTableViewController.swift
+//  BaseTableViewController.swift
 //  xingLangWeiBo
 //
 //  Created by Apple on 16/10/8.
@@ -8,8 +8,25 @@
 
 import UIKit
 
-class HomeTableViewController: BaseTableViewController {
-
+class BaseTableViewController: UITableViewController {
+    //loadview专门为手写代码  等效于 sb 与 xib
+    //一旦实现 xib和sb 自动失败
+    override func loadView() {
+//        super.loadView()
+//
+        var userLogin = true
+        userLogin ?super.loadView() : loadVisterVier()
+        
+        
+    }
+    private func loadVisterVier(){
+        let v = UIView()
+        v.backgroundColor=UIColor.redColor()
+        view=v
+        print(view)
+    
+    
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
