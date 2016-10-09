@@ -12,6 +12,7 @@ class HomeTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       vistorLoginView?.setUIInfo(nil, title: "关注一些人,回这里看看有什么惊喜关注一些人,回这里看看有什么惊喜")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

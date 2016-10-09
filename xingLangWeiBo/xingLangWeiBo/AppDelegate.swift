@@ -20,10 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window=UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor=UIColor.whiteColor()
         window?.makeKeyAndVisible()
-        
+        //设置主题色
+        setThemeColor()
         //设置根控制器
         window?.rootViewController=MainViewController()
         return true
+    }
+    private func setThemeColor(){
+     UINavigationBar.appearance().tintColor=themeColor
+    UITabBar.appearance().tintColor=themeColor
     }
 
     func applicationWillResignActive(application: UIApplication) {

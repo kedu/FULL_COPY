@@ -16,6 +16,8 @@
 		18DF9A631DA89E8300C0DA9A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A621DA89E8300C0DA9A /* ProfileTableViewController.swift */; };
 		18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A661DA8FBCA00C0DA9A /* MainTabBar.swift */; };
 		18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */; };
+		18DF9A6D1DA9299F00C0DA9A /* VistorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A6C1DA9299F00C0DA9A /* VistorLoginView.swift */; };
+		18DF9A6F1DA9F25400C0DA9A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A6E1DA9F25400C0DA9A /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		18DF9A621DA89E8300C0DA9A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		18DF9A661DA8FBCA00C0DA9A /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		18DF9A6C1DA9299F00C0DA9A /* VistorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VistorLoginView.swift; sourceTree = "<group>"; };
+		18DF9A6E1DA9F25400C0DA9A /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 		18DF9A521DA89B3F00C0DA9A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				18DF9A6E1DA9F25400C0DA9A /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -159,9 +164,18 @@
 		18DF9A681DA920BD00C0DA9A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				18DF9A6B1DA9295600C0DA9A /* VistorLoginView */,
 				18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		18DF9A6B1DA9295600C0DA9A /* VistorLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A6C1DA9299F00C0DA9A /* VistorLoginView.swift */,
+			);
+			path = VistorLoginView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +255,8 @@
 				18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */,
 				18DF9A5F1DA89E6C00C0DA9A /* MessageTableViewController.swift in Sources */,
 				18DF9A611DA89E7800C0DA9A /* DiscoverTableViewController.swift in Sources */,
+				18DF9A6D1DA9299F00C0DA9A /* VistorLoginView.swift in Sources */,
+				18DF9A6F1DA9F25400C0DA9A /* Common.swift in Sources */,
 				18DF9A5B1DA89E2600C0DA9A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +390,7 @@
 				18DF9A491DA7CA0700C0DA9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

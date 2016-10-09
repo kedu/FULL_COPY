@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
+class ProfileTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ vistorLoginView?.setUIInfo("visitordiscover_image_profile", title: "登录后,你的微薄,相册,个人资料会显示在这里,展示给他人")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

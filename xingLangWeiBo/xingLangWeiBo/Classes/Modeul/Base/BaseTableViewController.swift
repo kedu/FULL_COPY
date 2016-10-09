@@ -8,24 +8,35 @@
 
 import UIKit
 
-class BaseTableViewController: UITableViewController {
+class BaseTableViewController: UITableViewController,VistorLoginViewDelegate {
     //loadview专门为手写代码  等效于 sb 与 xib
     //一旦实现 xib和sb 自动失败
+    
+    var userLogin = false
+    var vistorLoginView:VistorLoginView?
     override func loadView() {
 //        super.loadView()
 //
-        var userLogin = true
-        userLogin ?super.loadView() : loadVisterVier()
+       
+        
+        userLogin ? super.loadView() : loadVisterVier()
         
         
     }
+    func vistorWillLogin() {
+        print("注册")
+    }
+    func visitorWillRegister() {
+        print("登录")
+    }
     private func loadVisterVier(){
-        let v = UIView()
-        v.backgroundColor=UIColor.redColor()
-        view=v
-        print(view)
-    
-    
+        vistorLoginView = VistorLoginView()
+       vistorLoginView?.visitorDelegate=self
+        view = vistorLoginView
+        
+        self.navigationItem.rightBarButtonItem=UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "vistorWillLogin")
+        self.navigationItem.leftBarButtonItem=UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "visitorWillRegister")
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
