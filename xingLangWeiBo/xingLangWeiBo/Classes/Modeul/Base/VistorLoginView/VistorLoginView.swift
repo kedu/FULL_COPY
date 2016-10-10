@@ -41,12 +41,18 @@ class VistorLoginView: UIView {
             self.circleView.image=UIImage(named: imageName!)
             iconView.hidden=true
             //设置动画
+//            if  imageName != nil{
+//                
+//                print("原来是这样,空格少加了")
+//                
+//            }
             
             
         }else{
         
         setAni()
         }
+       
 
 
         
@@ -171,7 +177,7 @@ class VistorLoginView: UIView {
     
     let btn = UIButton()
     
-        btn .setTitle("注册", forState: .Normal)
+        btn .setTitle("登录", forState: .Normal)
         btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState:.Normal)
         btn.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
         return btn
@@ -182,7 +188,7 @@ class VistorLoginView: UIView {
         
         let btn = UIButton()
         
-        btn .setTitle("登录", forState: .Normal)
+        btn .setTitle("注册", forState: .Normal)
         btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState:.Normal)
         btn.setTitleColor(UIColor.orangeColor(), forState: .Normal)
         return btn

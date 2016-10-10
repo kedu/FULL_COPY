@@ -18,9 +18,12 @@
 		18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */; };
 		18DF9A6D1DA9299F00C0DA9A /* VistorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A6C1DA9299F00C0DA9A /* VistorLoginView.swift */; };
 		18DF9A6F1DA9F25400C0DA9A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A6E1DA9F25400C0DA9A /* Common.swift */; };
+		18DF9A731DAA65F100C0DA9A /* Oauth2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A721DAA65F100C0DA9A /* Oauth2ViewController.swift */; };
+		D7C88C5CB0A25099702C8187 /* Pods_xingLangWeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BAF96281014B619972263F7 /* Pods_xingLangWeiBo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BAF96281014B619972263F7 /* Pods_xingLangWeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xingLangWeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF9A351DA7CA0700C0DA9A /* xingLangWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xingLangWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF9A381DA7CA0700C0DA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DF9A3F1DA7CA0700C0DA9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +37,9 @@
 		18DF9A691DA921C100C0DA9A /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		18DF9A6C1DA9299F00C0DA9A /* VistorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VistorLoginView.swift; sourceTree = "<group>"; };
 		18DF9A6E1DA9F25400C0DA9A /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		18DF9A721DAA65F100C0DA9A /* Oauth2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oauth2ViewController.swift; sourceTree = "<group>"; };
+		5C4E399E129F36C01657FDD2 /* Pods-xingLangWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xingLangWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo.release.xcconfig"; sourceTree = "<group>"; };
+		CDA689A71109898098858F3C /* Pods-xingLangWeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xingLangWeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C88C5CB0A25099702C8187 /* Pods_xingLangWeiBo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +59,8 @@
 			children = (
 				18DF9A371DA7CA0700C0DA9A /* xingLangWeiBo */,
 				18DF9A361DA7CA0700C0DA9A /* Products */,
+				25568FC200FFA44AF7C9E5FA /* Pods */,
+				D34A585C5C3AEC1369123100 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +104,7 @@
 		18DF9A4C1DA89B3F00C0DA9A /* Modeul */ = {
 			isa = PBXGroup;
 			children = (
+				18DF9A711DAA65A600C0DA9A /* Oauth2 */,
 				18DF9A681DA920BD00C0DA9A /* Base */,
 				18DF9A4F1DA89B3F00C0DA9A /* Main */,
 				18DF9A4E1DA89B3F00C0DA9A /* Home */,
@@ -178,6 +188,31 @@
 			path = VistorLoginView;
 			sourceTree = "<group>";
 		};
+		18DF9A711DAA65A600C0DA9A /* Oauth2 */ = {
+			isa = PBXGroup;
+			children = (
+				18DF9A721DAA65F100C0DA9A /* Oauth2ViewController.swift */,
+			);
+			path = Oauth2;
+			sourceTree = "<group>";
+		};
+		25568FC200FFA44AF7C9E5FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CDA689A71109898098858F3C /* Pods-xingLangWeiBo.debug.xcconfig */,
+				5C4E399E129F36C01657FDD2 /* Pods-xingLangWeiBo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D34A585C5C3AEC1369123100 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BAF96281014B619972263F7 /* Pods_xingLangWeiBo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18DF9A471DA7CA0700C0DA9A /* Build configuration list for PBXNativeTarget "xingLangWeiBo" */;
 			buildPhases = (
+				BDACF41D0AAD771E0BDE47B5 /* [CP] Check Pods Manifest.lock */,
 				18DF9A311DA7CA0700C0DA9A /* Sources */,
 				18DF9A321DA7CA0700C0DA9A /* Frameworks */,
 				18DF9A331DA7CA0700C0DA9A /* Resources */,
+				9DD27376A8968B703A5DB4AA /* [CP] Embed Pods Frameworks */,
+				37725BEFAE792F632EBAD7A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +281,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37725BEFAE792F632EBAD7A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DD27376A8968B703A5DB4AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDACF41D0AAD771E0BDE47B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18DF9A311DA7CA0700C0DA9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -250,6 +336,7 @@
 			files = (
 				18DF9A631DA89E8300C0DA9A /* ProfileTableViewController.swift in Sources */,
 				18DF9A5D1DA89E5200C0DA9A /* HomeTableViewController.swift in Sources */,
+				18DF9A731DAA65F100C0DA9A /* Oauth2ViewController.swift in Sources */,
 				18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */,
 				18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */,
 				18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */,
@@ -347,12 +434,13 @@
 		};
 		18DF9A481DA7CA0700C0DA9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDA689A71109898098858F3C /* Pods-xingLangWeiBo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = xingLangWeiBo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.xingLangWeiBo";
+				PRODUCT_BUNDLE_IDENTIFIER = "lkb-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -360,12 +448,13 @@
 		};
 		18DF9A491DA7CA0700C0DA9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C4E399E129F36C01657FDD2 /* Pods-xingLangWeiBo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = xingLangWeiBo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.xingLangWeiBo";
+				PRODUCT_BUNDLE_IDENTIFIER = "lkb-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
