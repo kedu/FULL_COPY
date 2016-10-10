@@ -10,15 +10,37 @@
 //           3221697989
 //App Secret：9f1bc9a0cec3b770c18f061399177583
 //https://api.weibo.com/oauth2/authorize
-import UIKit
+//
+//https://api.weibo.com/oauth2/access_token
+//client_id
+//client_secret
+//
+/**
+*  post
+必选	类型及范围	说明
+client_id	true	string	申请应用时分配的AppKey。
+client_secret	true	string	申请应用时分配的AppSecret。
+grant_type	true	string	请求的类型，填写authorization_code
 
+grant_type为authorization_code时
+必选	类型及范围	说明
+code	true	string	调用authorize获得的code值。
+redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
+*/
+import UIKit
+import SVProgressHUD
+import AFNetworking
 class Oauth2ViewController: UIViewController {
     //
     let client_id = "3221697989"
     let redirect_uri = "https://www.baidu.com/"
+    let client_secret = "9f1bc9a0cec3b770c18f061399177583"
+    let grant_type = "authorization_code"
+    
     var webView = UIWebView()
     override func loadView() {
         view=webView
+        webView.delegate=self
 
         print(view)
     }
@@ -30,15 +52,22 @@ class Oauth2ViewController: UIViewController {
     }
     private func setupUI(){
     self.navigationItem.leftBarButtonItem=UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: "close")
+        self.navigationItem.rightBarButtonItem=UIBarButtonItem(title: "自动填充", style: .Plain, target: self, action: "fullAccount")
     }
     private func loadOauthPage(){
       let urlString="https://api.weibo.com/oauth2/authorize?"+"client_id="+client_id+"&redirect_uri="+redirect_uri
        let url = NSURL(string: urlString)
-        print(url)
+//        print(url)
         let request=NSURLRequest(URL: url!)
         webView.loadRequest(request)
         
     
+    
+    }
+    @objc private func fullAccount(){
+    
+    let jsString="document.getElementById('userId').value='1218773641@qq.com',document.getElementById('passwd').value='6586721b';"
+        webView.stringByEvaluatingJavaScriptFromString(jsString)
     
     }
     @objc private func close(){
@@ -65,4 +94,111 @@ class Oauth2ViewController: UIViewController {
     }
     */
 
+
+}
+/*
+Optional(https://api.weibo.com/oauth2/authorize?client_id=3221697989&redirect_uri=https://www.baidu.com/#)
+Optional(https://api.weibo.com/oauth2/authorize)
+Optional(https://www.baidu.com/?code=e9a762ee222601bfc1dba55f6488db66)
+
+
+*/
+//专门处理webView所有的协议方法
+extension Oauth2ViewController:UIWebViewDelegate{
+    //将要开始加载
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+//        print(request.URL)
+        guard let  urlString=request.URL?.absoluteString else{
+        return false
+        }
+        if urlString.hasPrefix("https://api.weibo.com"){
+        return true}
+
+        if !urlString.hasPrefix(redirect_uri){
+        return false
+        }
+        //程序走到这里,一定包含url
+        guard let query = request.URL?.query else {
+        
+        return false
+        }
+        let codeStr = "code="
+        let code = query.substringFromIndex(codeStr.endIndex)
+        print(code)
+      loadAccessToken(code)
+        return false
+    }
+    private func loadAccessToken(code:String){
+      let urlString = "https://api.weibo.com/oauth2/access_token"
+     let parmeters = ["client_id":client_id,"client_secret":client_secret,"grant_type":"authorization_code","code":code,"redirect_uri":redirect_uri]
+      let AFN=AFHTTPSessionManager()
+        AFN.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        AFN.POST(urlString, parameters: parmeters, success: { (_, result) -> Void in
+            print(result)
+
+           
+            
+            
+            
+            
+            if let dict = result as? [String:AnyObject] {
+                
+                 let account = useAccount(dict: dict)
+                print(account)
+                self.loadUseInfo(account)
+//              let access_token = dict["access_token"] as? String
+//              let uid = dict["uid"] as? String
+//                self.loadUseInfo(account)
+            }
+            
+            }) { (_, error) -> Void in
+                print(error)
+        }
+    
+    }
+    //
+//    https://api.weibo.com/2/users/show.json
+    private func loadUseInfo(account:useAccount){
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        let pares = ["access_token":account.access_token!,"uid":account.uid!]
+        let AFN = AFHTTPSessionManager()
+        AFN.GET(urlString, parameters: pares, success: { (_, result) -> Void in
+            print(result)
+            if let dict = result as? [String:AnyObject] {
+                
+                account.avatar_large=dict["avatar_large"] as? String
+                account.name=dict["name"] as? String
+                account.saveAccount()
+                print(account)
+            }
+            })
+            { (_, error) -> Void in
+                print(error)
+        }
+    //保存用户数据
+    
+    
+    
+    }
+//    加载失败
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        
+    }
+    //已经开始加载
+    func webViewDidStartLoad(webView: UIWebView) {
+        SVProgressHUD.show()
+        
+    }
+    //已经完成加载
+    func webViewDidFinishLoad(webView: UIWebView) {
+        SVProgressHUD.dismiss()
+        
+    }
+ 
+    
+    
+    
+    
+    
+    
 }

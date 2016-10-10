@@ -12,7 +12,7 @@ class BaseTableViewController: UITableViewController,VistorLoginViewDelegate {
     //loadview专门为手写代码  等效于 sb 与 xib
     //一旦实现 xib和sb 自动失败
     //添加用户是否登录
-    var userLogin = false
+    var userLogin = useAccount.loadAccount() != nil
     var vistorLoginView:VistorLoginView?
     override func loadView() {
         userLogin ? super.loadView() : loadVisterVier()

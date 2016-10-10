@@ -19,6 +19,7 @@
 		18DF9A6D1DA9299F00C0DA9A /* VistorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A6C1DA9299F00C0DA9A /* VistorLoginView.swift */; };
 		18DF9A6F1DA9F25400C0DA9A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A6E1DA9F25400C0DA9A /* Common.swift */; };
 		18DF9A731DAA65F100C0DA9A /* Oauth2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A721DAA65F100C0DA9A /* Oauth2ViewController.swift */; };
+		18DF9A751DAB92FA00C0DA9A /* useAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A741DAB92FA00C0DA9A /* useAccount.swift */; };
 		D7C88C5CB0A25099702C8187 /* Pods_xingLangWeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BAF96281014B619972263F7 /* Pods_xingLangWeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		18DF9A6C1DA9299F00C0DA9A /* VistorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VistorLoginView.swift; sourceTree = "<group>"; };
 		18DF9A6E1DA9F25400C0DA9A /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		18DF9A721DAA65F100C0DA9A /* Oauth2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oauth2ViewController.swift; sourceTree = "<group>"; };
+		18DF9A741DAB92FA00C0DA9A /* useAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = useAccount.swift; sourceTree = "<group>"; };
 		5C4E399E129F36C01657FDD2 /* Pods-xingLangWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xingLangWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		CDA689A71109898098858F3C /* Pods-xingLangWeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xingLangWeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 		18DF9A4B1DA89B3F00C0DA9A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				18DF9A741DAB92FA00C0DA9A /* useAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				18DF9A731DAA65F100C0DA9A /* Oauth2ViewController.swift in Sources */,
 				18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */,
 				18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */,
+				18DF9A751DAB92FA00C0DA9A /* useAccount.swift in Sources */,
 				18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */,
 				18DF9A5F1DA89E6C00C0DA9A /* MessageTableViewController.swift in Sources */,
 				18DF9A611DA89E7800C0DA9A /* DiscoverTableViewController.swift in Sources */,

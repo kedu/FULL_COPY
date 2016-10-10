@@ -11,11 +11,13 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  
     var window: UIWindow?
     //开始测试
     //配置了ssh通道,测试一下
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let account = useAccount.loadAccount()
+        print(account)
         // Override point for customization after application launch.
         window=UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor=UIColor.whiteColor()
