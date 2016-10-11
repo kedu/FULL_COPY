@@ -10,7 +10,18 @@ import UIKit
 //保存用户信息
 class useAccount: NSObject,NSCoding {
     var  access_token :String?
-    var  expires_in:NSTimeInterval=0
+    var  expires_in:NSTimeInterval=0 {
+        didSet {
+        
+        expires_date = NSDate(timeIntervalSinceNow: expires_in)
+        
+        
+        }
+    
+    
+    }
+    //过期时间
+    var expires_date:NSDate?
     var  uid:String?
     var  avatar_large:String?
     var  name:String?
@@ -23,7 +34,7 @@ class useAccount: NSObject,NSCoding {
         
     }
     override var description : String {
-        let keys = ["access_token","expires_in","uid","avatar_large","name"]
+        let keys = ["access_token","expires_in","uid","avatar_large","name","expires_date"]
     return dictionaryWithValuesForKeys(keys).description
     }
     //归档
@@ -39,7 +50,9 @@ class useAccount: NSObject,NSCoding {
     class func loadAccount() ->useAccount?{
         let path = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent("account.plist")
         if let account = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? useAccount {
-        return account
+            //判断用户的token是否过期
+            if account.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending {
+                return account}
         }
         return nil
     }
@@ -51,6 +64,7 @@ class useAccount: NSObject,NSCoding {
         uid = aDecoder.decodeObjectForKey("uid") as? String
         avatar_large = aDecoder.decodeObjectForKey("avatar_large") as? String
         name = aDecoder.decodeObjectForKey("name") as? String
+        expires_date = aDecoder.decodeObjectForKey("expires_date") as? NSDate
         
     }
     //归档
@@ -60,6 +74,7 @@ class useAccount: NSObject,NSCoding {
          aCoder.encodeObject(uid, forKey: "uid")
          aCoder.encodeObject(avatar_large, forKey: "avatar_large")
          aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(expires_date, forKey: "expires_date")
         
         
         
