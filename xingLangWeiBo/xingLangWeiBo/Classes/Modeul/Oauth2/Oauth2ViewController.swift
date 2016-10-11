@@ -32,10 +32,7 @@ import SVProgressHUD
 import AFNetworking
 class Oauth2ViewController: UIViewController {
     //
-    let client_id = "3221697989"
-    let redirect_uri = "https://www.baidu.com/"
-    let client_secret = "9f1bc9a0cec3b770c18f061399177583"
-    let grant_type = "authorization_code"
+
     
     var webView = UIWebView()
     override func loadView() {
@@ -125,61 +122,16 @@ extension Oauth2ViewController:UIWebViewDelegate{
         let codeStr = "code="
         let code = query.substringFromIndex(codeStr.endIndex)
         print(code)
-      loadAccessToken(code)
+//      loadAccessToken(code)
+        userAccountViewModel().loadAccessToken(code) { (error) -> () in
+            print("come here")
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }
+        
         return false
     }
-    private func loadAccessToken(code:String){
-      let urlString = "https://api.weibo.com/oauth2/access_token"
-     let parmeters = ["client_id":client_id,"client_secret":client_secret,"grant_type":"authorization_code","code":code,"redirect_uri":redirect_uri]
-      let AFN=AFHTTPSessionManager()
-        AFN.responseSerializer.acceptableContentTypes?.insert("text/plain")
-        AFN.POST(urlString, parameters: parmeters, success: { (_, result) -> Void in
-            print(result)
 
-           
-            
-            
-            
-            
-            if let dict = result as? [String:AnyObject] {
-                
-                 let account = useAccount(dict: dict)
-                print(account)
-                self.loadUseInfo(account)
-//              let access_token = dict["access_token"] as? String
-//              let uid = dict["uid"] as? String
-//                self.loadUseInfo(account)
-            }
-            
-            }) { (_, error) -> Void in
-                print(error)
-        }
-    
-    }
-    //
-//    https://api.weibo.com/2/users/show.json
-    private func loadUseInfo(account:useAccount){
-        let urlString = "https://api.weibo.com/2/users/show.json"
-        let pares = ["access_token":account.access_token!,"uid":account.uid!]
-        let AFN = AFHTTPSessionManager()
-        AFN.GET(urlString, parameters: pares, success: { (_, result) -> Void in
-            print(result)
-            if let dict = result as? [String:AnyObject] {
-                
-                account.avatar_large=dict["avatar_large"] as? String
-                account.name=dict["name"] as? String
-                account.saveAccount()
-                print(account)
-            }
-            })
-            { (_, error) -> Void in
-                print(error)
-        }
-    //保存用户数据
-    
-    
-    
-    }
 //    加载失败
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         
@@ -193,6 +145,10 @@ extension Oauth2ViewController:UIWebViewDelegate{
     func webViewDidFinishLoad(webView: UIWebView) {
         SVProgressHUD.dismiss()
         
+    }
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        SVProgressHUD.dismiss()
     }
  
     

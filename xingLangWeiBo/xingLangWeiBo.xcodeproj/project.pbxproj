@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18D1DD681DAC870700806993 /* userAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1DD671DAC870700806993 /* userAccountViewModel.swift */; };
 		18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A381DA7CA0700C0DA9A /* AppDelegate.swift */; };
 		18DF9A401DA7CA0700C0DA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DF9A3F1DA7CA0700C0DA9A /* Assets.xcassets */; };
 		18DF9A5B1DA89E2600C0DA9A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A5A1DA89E2600C0DA9A /* MainViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0BAF96281014B619972263F7 /* Pods_xingLangWeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xingLangWeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18D1DD671DAC870700806993 /* userAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userAccountViewModel.swift; sourceTree = "<group>"; };
 		18DF9A351DA7CA0700C0DA9A /* xingLangWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xingLangWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF9A381DA7CA0700C0DA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DF9A3F1DA7CA0700C0DA9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		18DF9A531DA89B3F00C0DA9A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				18D1DD671DAC870700806993 /* userAccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				18DF9A5D1DA89E5200C0DA9A /* HomeTableViewController.swift in Sources */,
 				18DF9A731DAA65F100C0DA9A /* Oauth2ViewController.swift in Sources */,
 				18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */,
+				18D1DD681DAC870700806993 /* userAccountViewModel.swift in Sources */,
 				18DF9A671DA8FBCA00C0DA9A /* MainTabBar.swift in Sources */,
 				18DF9A751DAB92FA00C0DA9A /* useAccount.swift in Sources */,
 				18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */,
