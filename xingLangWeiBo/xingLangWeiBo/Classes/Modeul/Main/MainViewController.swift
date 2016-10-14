@@ -9,11 +9,14 @@
 import UIKit
 
 class MainViewController: UITabBarController {
+    //点击加号做的事情
     @objc private func composeDidClick(){
-    
     print(__FUNCTION__)
-        
-    
+        let composeVC = composeViewController()
+        let nav = UINavigationController(rootViewController: composeVC)
+        presentViewController(nav, animated: true) { () -> Void in
+            print("composeVC被模态出来了")
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
