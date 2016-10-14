@@ -35,11 +35,17 @@ class NavViewController: UINavigationController {
         appearance.setTitleTextAttributes(hightmd[NSForegroundColorAttributeName] as! [String:AnyObject]? , forState: .Highlighted)
         //设置不可用状态
         let dismd = NSMutableDictionary()
-        dismd[NSForegroundColorAttributeName] = UIColor.greenColor()
+        dismd[NSForegroundColorAttributeName] = UIColor.grayColor()
         appearance.setTitleTextAttributes(dismd[NSForegroundColorAttributeName] as! [String:AnyObject]? , forState: .Disabled)
         
         
         
+    }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

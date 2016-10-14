@@ -13,7 +13,8 @@ class MainViewController: UITabBarController {
     @objc private func composeDidClick(){
     print(__FUNCTION__)
         let composeVC = composeViewController()
-        let nav = UINavigationController(rootViewController: composeVC)
+        let nav = NavViewController(rootViewController: composeVC)
+        
         presentViewController(nav, animated: true) { () -> Void in
             print("composeVC被模态出来了")
         }
