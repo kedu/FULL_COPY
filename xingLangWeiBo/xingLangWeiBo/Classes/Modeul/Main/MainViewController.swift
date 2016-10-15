@@ -12,8 +12,10 @@ class MainViewController: UITabBarController {
     //点击加号做的事情
     @objc private func composeDidClick(){
     print(__FUNCTION__)
-        let composeVC = composeViewController()
-        let nav = NavViewController(rootViewController: composeVC)
+//        let composeVC = composeViewController()
+        let sb = UIStoryboard(name: "Compose", bundle: nil)
+        let composeVC = sb.instantiateInitialViewController()
+        let nav = NavViewController(rootViewController: composeVC!)
         
         presentViewController(nav, animated: true) { () -> Void in
             print("composeVC被模态出来了")
@@ -45,8 +47,7 @@ class MainViewController: UITabBarController {
         let nav=UINavigationController(rootViewController: vc)
         vc.title=title;
         self.tabBar.tintColor=UIColor.orangeColor()
-        //        nav.title="首页"
-        //        title="首页"
+ 
         vc.tabBarItem.selectedImage=UIImage(named: imageName+"_highlighted")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         vc.tabBarItem.image=UIImage(named: imageName)
 //        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orangeColor()], forState: UIControlState.Normal )

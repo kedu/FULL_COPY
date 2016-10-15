@@ -26,6 +26,10 @@
 		18DF9A6F1DA9F25400C0DA9A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A6E1DA9F25400C0DA9A /* Common.swift */; };
 		18DF9A731DAA65F100C0DA9A /* Oauth2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A721DAA65F100C0DA9A /* Oauth2ViewController.swift */; };
 		18DF9A751DAB92FA00C0DA9A /* useAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF9A741DAB92FA00C0DA9A /* useAccount.swift */; };
+		18E8B1311DB1B6CF00C266B6 /* toolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8B1301DB1B6CF00C266B6 /* toolbarView.swift */; };
+		18E8B1331DB262AC00C266B6 /* Compose.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E8B1321DB262AC00C266B6 /* Compose.storyboard */; };
+		18E8B1351DB26E3100C266B6 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8B1341DB26E3100C266B6 /* PictureCollectionViewCell.swift */; };
+		18E8B1371DB2710E00C266B6 /* PhotoCollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8B1361DB2710E00C266B6 /* PhotoCollViewController.swift */; };
 		D7C88C5CB0A25099702C8187 /* Pods_xingLangWeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BAF96281014B619972263F7 /* Pods_xingLangWeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,10 @@
 		18DF9A6E1DA9F25400C0DA9A /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		18DF9A721DAA65F100C0DA9A /* Oauth2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oauth2ViewController.swift; sourceTree = "<group>"; };
 		18DF9A741DAB92FA00C0DA9A /* useAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = useAccount.swift; sourceTree = "<group>"; };
+		18E8B1301DB1B6CF00C266B6 /* toolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toolbarView.swift; sourceTree = "<group>"; };
+		18E8B1321DB262AC00C266B6 /* Compose.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Compose.storyboard; sourceTree = "<group>"; };
+		18E8B1341DB26E3100C266B6 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		18E8B1361DB2710E00C266B6 /* PhotoCollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollViewController.swift; sourceTree = "<group>"; };
 		5C4E399E129F36C01657FDD2 /* Pods-xingLangWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xingLangWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		CDA689A71109898098858F3C /* Pods-xingLangWeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xingLangWeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xingLangWeiBo/Pods-xingLangWeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				18D1DEB61DB0CC9400806993 /* composeViewController.swift */,
+				18E8B12F1DB1B6BD00C266B6 /* toolbarView */,
 				18D1DEB81DB0D16E00806993 /* InputView */,
+				18E8B1321DB262AC00C266B6 /* Compose.storyboard */,
+				18E8B1341DB26E3100C266B6 /* PictureCollectionViewCell.swift */,
+				18E8B1361DB2710E00C266B6 /* PhotoCollViewController.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -241,6 +253,14 @@
 			path = Oauth2;
 			sourceTree = "<group>";
 		};
+		18E8B12F1DB1B6BD00C266B6 /* toolbarView */ = {
+			isa = PBXGroup;
+			children = (
+				18E8B1301DB1B6CF00C266B6 /* toolbarView.swift */,
+			);
+			path = toolbarView;
+			sourceTree = "<group>";
+		};
 		25568FC200FFA44AF7C9E5FA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DF9A401DA7CA0700C0DA9A /* Assets.xcassets in Resources */,
+				18E8B1331DB262AC00C266B6 /* Compose.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +403,7 @@
 				18DF9A631DA89E8300C0DA9A /* ProfileTableViewController.swift in Sources */,
 				18DF9A5D1DA89E5200C0DA9A /* HomeTableViewController.swift in Sources */,
 				18D1DEB41DB0CA6400806993 /* UILabel+Extension.swift in Sources */,
+				18E8B1311DB1B6CF00C266B6 /* toolbarView.swift in Sources */,
 				18DF9A731DAA65F100C0DA9A /* Oauth2ViewController.swift in Sources */,
 				18D1DEBE1DB10F3B00806993 /* NavViewController.swift in Sources */,
 				18DF9A6A1DA921C100C0DA9A /* BaseTableViewController.swift in Sources */,
@@ -392,9 +414,11 @@
 				18DF9A391DA7CA0700C0DA9A /* AppDelegate.swift in Sources */,
 				18DF9A5F1DA89E6C00C0DA9A /* MessageTableViewController.swift in Sources */,
 				18DF9A611DA89E7800C0DA9A /* DiscoverTableViewController.swift in Sources */,
+				18E8B1371DB2710E00C266B6 /* PhotoCollViewController.swift in Sources */,
 				18D1DEB71DB0CC9400806993 /* composeViewController.swift in Sources */,
 				18DF9A6D1DA9299F00C0DA9A /* VistorLoginView.swift in Sources */,
 				18DF9A6F1DA9F25400C0DA9A /* Common.swift in Sources */,
+				18E8B1351DB26E3100C266B6 /* PictureCollectionViewCell.swift in Sources */,
 				18DF9A5B1DA89E2600C0DA9A /* MainViewController.swift in Sources */,
 				18D1DEB31DB0CA6400806993 /* UIButton+Extension.swift in Sources */,
 			);
