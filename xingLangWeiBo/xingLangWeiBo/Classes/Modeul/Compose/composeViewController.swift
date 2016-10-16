@@ -27,7 +27,7 @@ class composeViewController: UIViewController,UITextViewDelegate{
 
         let input = InputView()
         self.input = input
-        input.frame = self.textView.frame
+        self.textView.frame = input.frame
         input.translatesAutoresizingMaskIntoConstraints=false
         input.backgroundColor = UIColor.orangeColor()
         input.alwaysBounceVertical=true

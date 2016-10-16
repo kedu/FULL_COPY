@@ -14,9 +14,11 @@ class PictureCollectionViewCell: UICollectionViewCell {
     //删除按钮
     @IBOutlet weak var delegate: UIButton!
     //添加图片
-    @IBAction func addPic(sender: AnyObject) {
+    @IBAction func addPic(sender: AnyObject) {print("添加图片")
+        
     }
     //删除图片
     @IBAction func deletePic(sender: AnyObject) {
+        print("删除图片")
     }
 }

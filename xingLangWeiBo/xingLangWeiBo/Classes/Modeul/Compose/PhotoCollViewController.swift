@@ -18,7 +18,10 @@ class PhotoCollViewController: UICollectionViewController {
         super.viewDidLoad()
         //初始化item
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.registerClass(PictureCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        
+
         //通知
         
     }
@@ -27,7 +30,7 @@ class PhotoCollViewController: UICollectionViewController {
         //设置水平,垂直,全局间隙
         flow.minimumLineSpacing = 10
         flow.minimumInteritemSpacing = 10
-        flow.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        flow.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 5, right: 10)
         //设置全局itemsize
         let col :CGFloat = 3
         let wid = (view.frame.width - ((col+1)*10 as? CGFloat)! )/3.0
@@ -53,25 +56,25 @@ class PhotoCollViewController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return 100
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return 3
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         //取出cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-        
         //设置数据
         cell.backgroundColor = UIColor.orangeColor()
         //返回cell
-    
+       print(cell.contentView.subviews)
         return cell
     }
+
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         print("cell被点击了")
         

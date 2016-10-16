@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" red="0.059671336210000002" green="0.99676724139999995" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TvI-4r-8i7">
-                                <rect key="frame" x="0.0" y="152" width="375" height="315"/>
+                                <rect key="frame" x="0.0" y="142" width="375" height="525"/>
                                 <color key="backgroundColor" red="1" green="0.76343914137081459" blue="0.98357479400753023" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L4q-76-61r">
                                     <size key="itemSize" width="50" height="50"/>
@@ -31,7 +31,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <containerView key="backgroundView" opaque="NO" contentMode="scaleToFill" id="B3w-vA-sD7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <connections>
                                         <segue destination="Zcr-sD-z8Q" kind="embed" id="tFS-Jo-7jE"/>
@@ -52,18 +52,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TvI-4r-8i7" firstAttribute="leading" secondItem="CMD-dH-2g9" secondAttribute="leading" id="2xY-OW-CZu"/>
                             <constraint firstItem="TvI-4r-8i7" firstAttribute="leading" secondItem="CMD-dH-2g9" secondAttribute="leading" id="4Dw-ne-OCZ"/>
+                            <constraint firstAttribute="trailing" secondItem="TvI-4r-8i7" secondAttribute="trailing" id="57g-GQ-b5o"/>
                             <constraint firstAttribute="trailing" secondItem="irK-Dg-UZM" secondAttribute="trailing" id="A7D-g3-K9d"/>
-                            <constraint firstAttribute="bottom" secondItem="TvI-4r-8i7" secondAttribute="bottom" constant="200" id="BAT-Vb-4yt"/>
                             <constraint firstItem="irK-Dg-UZM" firstAttribute="leading" secondItem="CMD-dH-2g9" secondAttribute="leading" id="EHt-T7-o0j"/>
                             <constraint firstAttribute="trailing" secondItem="TvI-4r-8i7" secondAttribute="trailing" id="G0C-TI-ESu"/>
                             <constraint firstItem="irK-Dg-UZM" firstAttribute="top" secondItem="kYr-aV-LaQ" secondAttribute="bottom" id="LnE-l3-RVG"/>
+                            <constraint firstItem="Ynf-tJ-aOD" firstAttribute="top" secondItem="TvI-4r-8i7" secondAttribute="bottom" id="OpY-mm-mnq"/>
                             <constraint firstAttribute="bottom" secondItem="irK-Dg-UZM" secondAttribute="bottom" constant="525" id="Zzg-ij-zfx"/>
                             <constraint firstItem="TvI-4r-8i7" firstAttribute="leading" secondItem="CMD-dH-2g9" secondAttribute="leading" id="fD8-RH-ntD"/>
-                            <constraint firstItem="TvI-4r-8i7" firstAttribute="top" secondItem="irK-Dg-UZM" secondAttribute="bottom" constant="10" id="fDo-q7-Wqb"/>
                             <constraint firstAttribute="trailing" secondItem="TvI-4r-8i7" secondAttribute="trailing" id="qHd-w2-61W"/>
-                            <constraint firstItem="TvI-4r-8i7" firstAttribute="top" secondItem="irK-Dg-UZM" secondAttribute="bottom" constant="10" id="uJ4-Eq-uCA"/>
-                            <constraint firstItem="Ynf-tJ-aOD" firstAttribute="top" secondItem="TvI-4r-8i7" secondAttribute="bottom" constant="200" id="veM-A6-Pzw"/>
+                            <constraint firstItem="TvI-4r-8i7" firstAttribute="top" secondItem="irK-Dg-UZM" secondAttribute="bottom" id="uJ4-Eq-uCA"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -82,7 +82,7 @@
             <objects>
                 <collectionViewController id="Zcr-sD-z8Q" customClass="PhotoCollViewController" customModule="xingLangWeiBo" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="e0l-60-7tf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hVp-b7-Rqz">
                             <size key="itemSize" width="73" height="70"/>
@@ -91,7 +91,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="RKy-P4-3lN" customClass="PictureCollectionViewCell" customModule="xingLangWeiBo" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" reuseIdentifier="Cell" id="RKy-P4-3lN" customClass="PictureCollectionViewCell" customModule="xingLangWeiBo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="73" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -100,6 +100,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuZ-7g-fwj">
                                             <rect key="frame" x="0.0" y="0.0" width="73" height="70"/>
+                                            <color key="backgroundColor" red="0.94596165536966814" green="1" blue="0.96148877848876912" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" backgroundImage="compose_emoticonbutton_background"/>
                                             <state key="highlighted" backgroundImage="compose_emoticonbutton_background_highlighted"/>
                                             <connections>
@@ -107,12 +108,12 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ek4-RQ-b4m">
-                                            <rect key="frame" x="22" y="40" width="46" height="30"/>
+                                            <rect key="frame" x="45" y="42" width="28" height="28"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="46" id="5iR-wS-6kb"/>
-                                                <constraint firstAttribute="height" constant="30" id="D7Q-5L-TFP"/>
+                                                <constraint firstAttribute="width" constant="28" id="cYT-yN-FWE"/>
+                                                <constraint firstAttribute="height" constant="28" id="fC3-ij-kdg"/>
                                             </constraints>
-                                            <state key="normal" title="Button" backgroundImage="compose_location_icon_delete"/>
+                                            <state key="normal" backgroundImage="compose_location_icon_delete"/>
                                             <connections>
                                                 <action selector="deletePic:" destination="RKy-P4-3lN" eventType="touchUpInside" id="4EW-bb-bxG"/>
                                             </connections>
@@ -121,11 +122,11 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Ek4-RQ-b4m" secondAttribute="trailing" constant="5" id="0OZ-Qj-v61"/>
                                     <constraint firstItem="QuZ-7g-fwj" firstAttribute="leading" secondItem="RKy-P4-3lN" secondAttribute="leading" id="7Yg-9q-kjs"/>
                                     <constraint firstAttribute="bottom" secondItem="QuZ-7g-fwj" secondAttribute="bottom" id="84x-xp-8GD"/>
                                     <constraint firstItem="QuZ-7g-fwj" firstAttribute="top" secondItem="RKy-P4-3lN" secondAttribute="top" id="8T3-KH-nlU"/>
                                     <constraint firstItem="QuZ-7g-fwj" firstAttribute="leading" secondItem="RKy-P4-3lN" secondAttribute="leading" id="8cG-pt-PoE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ek4-RQ-b4m" secondAttribute="trailing" id="Ata-S2-0ac"/>
                                     <constraint firstItem="QuZ-7g-fwj" firstAttribute="leading" secondItem="RKy-P4-3lN" secondAttribute="leading" id="DQM-lM-ud2"/>
                                     <constraint firstItem="QuZ-7g-fwj" firstAttribute="top" secondItem="RKy-P4-3lN" secondAttribute="top" id="PfK-ER-e09"/>
                                     <constraint firstAttribute="bottom" secondItem="Ek4-RQ-b4m" secondAttribute="bottom" id="UBX-tD-zUw"/>
@@ -153,7 +154,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ruj-sQ-aW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="571.5" y="-13.5"/>
+            <point key="canvasLocation" x="579.5" y="-21.5"/>
         </scene>
     </scenes>
     <resources>
