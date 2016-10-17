@@ -28,9 +28,7 @@ class MainViewController: UITabBarController {
         setValue(mainTabBar, forKey: "tabBar")
         //添加子视图控制器
         addChildviewcontrollers()
-        //
-//        print(tabBar.classForCoder)
-        //
+
         mainTabBar.composeBtn.addTarget(self, action:"composeDidClick", forControlEvents: .TouchUpInside)
         
     }
@@ -42,7 +40,6 @@ class MainViewController: UITabBarController {
         //重载
     }
     private func addChildViewController(vc:UIViewController ,title:String, imageName:String ) {
-//        let home=HomeTableViewController()
         //实例化导航控制器
         let nav=UINavigationController(rootViewController: vc)
         vc.title=title;
@@ -50,7 +47,7 @@ class MainViewController: UITabBarController {
  
         vc.tabBarItem.selectedImage=UIImage(named: imageName+"_highlighted")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         vc.tabBarItem.image=UIImage(named: imageName)
-//        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orangeColor()], forState: UIControlState.Normal )
+
         addChildViewController(nav)
     }
 
@@ -60,14 +57,6 @@ class MainViewController: UITabBarController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

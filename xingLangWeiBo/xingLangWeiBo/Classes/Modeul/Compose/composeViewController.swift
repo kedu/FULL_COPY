@@ -10,34 +10,29 @@ import UIKit
 import SVProgressHUD
 import AFNetworking
 class composeViewController: UIViewController,UITextViewDelegate{
-    
-    //文本view
+    var photoVC : PhotoCollViewController?
+    //文本view容器
     @IBOutlet weak var textView: UIView!
     //图片view
     @IBOutlet weak var picView: UICollectionView!
     var input : InputView?
     var toolbar : toolbarView?
-//    var keyboard : uik
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //1.设置导航条
         title="发送微博"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action:"close")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发送", style: .Plain, target: self, action: "compose")
-
         let input = InputView()
-        self.input = input
-        self.textView.frame = input.frame
-        input.translatesAutoresizingMaskIntoConstraints=false
-        input.backgroundColor = UIColor.orangeColor()
-        input.alwaysBounceVertical=true
+        input.frame = CGRect(x: 0, y: 0, width: 375, height: 120)
+        input.backgroundColor = UIColor.orangeColor() //橙色区域正常,蓝色区域偏小,黑色区域偏大
         input.delegate=self
-//        view.addSubview(input)
          textView.addSubview(input)
-        view.addSubview(textView)
+        self.input = input
+
+
         
-//        view.addConstraint(NSLayoutConstraint(item: input, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0))
-//        view.addConstraint(NSLayoutConstraint(item: input, attribute: .Height, relatedBy: .Equal, toItem: self.view, attribute: .Height, multiplier: 1, constant: 0))
 //        */没有内容发送不可用
         navigationItem.rightBarButtonItem?.enabled = false
         //创建自定义工具条
@@ -49,6 +44,9 @@ class composeViewController: UIViewController,UITextViewDelegate{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didShow:", name: UIKeyboardWillShowNotification, object: nil)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "didHide:", name: UIKeyboardDidHideNotification, object: nil)
         
+    }
+    override func viewDidAppear(animated: Bool) {
+        print(view.subviews)
     }
     func didShow(note:NSNotification){
       print(note)
@@ -93,13 +91,20 @@ class composeViewController: UIViewController,UITextViewDelegate{
         navigationItem.rightBarButtonItem?.enabled=(textView.text.characters.count>0)
         
     }
-   
+    override func viewWillAppear(animated: Bool) {
+  
+    }
     func close (){
     print("取消")
         input?.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
     func compose (){
+        //是否有配图
+        if (photoVC?.images.count > 0){
+        composeWithText()
+        
+        }else{
         //发送请求
         let AFN = AFHTTPSessionManager()
         let par = NSMutableDictionary()
@@ -112,10 +117,35 @@ class composeViewController: UIViewController,UITextViewDelegate{
             }) { (_, error) -> Void in
                 print(error)
                 SVProgressHUD.showSuccessWithStatus("失败")
-        }
+            }}
         input?.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
-        print("发送")
+            print("发送")
+        
+    }
+    func composeWithText(){
+    //https://upload.api.weibo.com/2/statuses/upload.json
+        let AFN = AFHTTPSessionManager()
+        let par = NSMutableDictionary()
+        par["access_token"] = "2.00se1ysCnouBWDcb50c48d2cHieWbE"
+        par["status"] = input?.text
+        let urlstring = "https://upload.api.weibo.com/2/statuses/upload.json"
+        AFN.POST(urlstring, parameters: par, success: { (dataTask, respond) -> Void in
+            print(respond)
+            SVProgressHUD.showSuccessWithStatus("成功")
+            }) { (_, error) -> Void in
+                print(error)
+                SVProgressHUD.showSuccessWithStatus("失败")
+        }
+
+    
+    
+    }
+   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        photoVC = segue.destinationViewController as! PhotoCollViewController
+        
+        
         
     }
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {

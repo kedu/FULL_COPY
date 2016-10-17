@@ -10,20 +10,53 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-
-class PhotoCollViewController: UICollectionViewController {
+class PhotoCollViewController: UICollectionViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    lazy var images : NSMutableArray = {
+    let IM = NSMutableArray()
+        return IM
+    
+    }()
     //布局
     @IBOutlet weak var flow: UICollectionViewFlowLayout!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         //初始化item
-        // Register cell classes
-//        self.collectionView!.registerClass(PictureCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        
 
         //通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addPic", name: "addPic", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deletePic:", name: "deletePic", object: nil)
         
+    }
+    //选中图片
+      func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+    let image = info[UIImagePickerControllerOriginalImage]
+        images.addObject(image!)
+        self.collectionView?.reloadData()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+   //取消
+      func imagePickerControllerDidCancel(picker: UIImagePickerController){
+       picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    //添加图片
+    func addPic(){
+        let picVC = UIImagePickerController()
+        picVC.delegate = self
+        presentViewController(picVC, animated: true, completion: nil)
+        
+        
+    }
+    //删除图片
+    func deletePic(note : NSNotification){
+   let cell = note.object
+    images.removeObjectAtIndex(cell!.indexPath.item)
+
+        
+    collectionView?.reloadData()
+    
+    
     }
     override func viewWillLayoutSubviews() {
         //初始化item
@@ -56,59 +89,38 @@ class PhotoCollViewController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 100
+        return 1
     }
-
+ 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 3
+        return self.images.count+1
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         //取出cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PictureCollectionViewCell
         //设置数据
         cell.backgroundColor = UIColor.orangeColor()
+         print("images.count\(images.count)")
+           print("indexPath.item\(indexPath.item)")
+        if images.count == indexPath.item {
+            cell.iconImage = nil
+           
+        } else {
+            cell.iconImage = (images[indexPath.item] as? UIImage)
+            cell.indexPath = indexPath
+            
+        }
         //返回cell
        print(cell.contentView.subviews)
         return cell
     }
-
-    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        print("cell被点击了")
-        
-    }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    deinit{
+      NSNotificationCenter.defaultCenter().removeObserver(self)
+    
+    
     
     }
-    */
-
 }
