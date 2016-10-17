@@ -10,7 +10,7 @@ import UIKit
 
 class InputView: UITextView {
 //    var placeholder : String?
-    var placeholderLabel1: UILabel?
+    var placeholderLabel: UILabel?
     override func drawRect(rect: CGRect) {
 
     }
@@ -24,7 +24,7 @@ class InputView: UITextView {
         font = UIFont.systemFontOfSize(15)
         placeholderLabel.font = font
         addSubview(placeholderLabel)
-        self.placeholderLabel1 = placeholderLabel
+        self.placeholderLabel = placeholderLabel
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "textchange", name: UITextViewTextDidChangeNotification, object: nil)
 
         
@@ -32,14 +32,14 @@ class InputView: UITextView {
     override func layoutSubviews() {
         super.layoutSubviews()
         autoresizesSubviews = false
-         placeholderLabel1!.frame = CGRect(x: 0, y: 0, width: 375, height: 50)
+         placeholderLabel!.frame = CGRect(x: 0, y: 0, width: 375, height: 50)
         
 //        addConstraint(NSLayoutConstraint(item: placeholderLabel!, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0))
         
         
     }
     func textchange(){
-       placeholderLabel1?.hidden = (self.text.characters.count>0)
+       placeholderLabel?.hidden = (self.text.characters.count>0)
 
     }
     required init?(coder aDecoder: NSCoder) {

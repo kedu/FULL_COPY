@@ -45,11 +45,9 @@ class composeViewController: UIViewController,UITextViewDelegate{
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "didHide:", name: UIKeyboardDidHideNotification, object: nil)
         
     }
-    override func viewDidAppear(animated: Bool) {
-        print(view.subviews)
-    }
+
     func didShow(note:NSNotification){
-      print(note)
+//      print(note)
         //取出键盘的frame
         let temp = note.userInfo![UIKeyboardFrameEndUserInfoKey]
 
@@ -71,7 +69,7 @@ class composeViewController: UIViewController,UITextViewDelegate{
     
     }
     func didHide(note:NSNotification){
-       print(note)
+//       print(note)
         let temp = note.userInfo![UIKeyboardFrameEndUserInfoKey]
         
         let keyboardframe_temp = temp! as? NSValue
@@ -114,30 +112,42 @@ class composeViewController: UIViewController,UITextViewDelegate{
         AFN.POST(urlstring, parameters: par, success: { (dataTask, respond) -> Void in
             print(respond)
             SVProgressHUD.showSuccessWithStatus("成功")
+            
             }) { (_, error) -> Void in
                 print(error)
                 SVProgressHUD.showSuccessWithStatus("失败")
             }}
         input?.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
+       
             print("发送")
         
     }
     func composeWithText(){
-    //https://upload.api.weibo.com/2/statuses/upload.json
         let AFN = AFHTTPSessionManager()
         let par = NSMutableDictionary()
         par["access_token"] = "2.00se1ysCnouBWDcb50c48d2cHieWbE"
         par["status"] = input?.text
+//        par["pic"] = photoVC?.images[0] 二进制不能通过字典发送
         let urlstring = "https://upload.api.weibo.com/2/statuses/upload.json"
-        AFN.POST(urlstring, parameters: par, success: { (dataTask, respond) -> Void in
-            print(respond)
-            SVProgressHUD.showSuccessWithStatus("成功")
-            }) { (_, error) -> Void in
+//        AFN.requestSerializer.willChangeValueForKey:("timeoutInterval")
+        AFN.requestSerializer.willChangeValueForKey("timeoutInterval")
+        AFN.requestSerializer.timeoutInterval = 30;
+        AFN.requestSerializer.didChangeValueForKey("timeoutInterval")
+        AFN.POST(urlstring, parameters: par, constructingBodyWithBlock: { (AFMultipartFormData) -> Void in
+            let pic = self.photoVC?.images.firstObject as! UIImage
+            let pic_data = UIImagePNGRepresentation(pic)
+            AFMultipartFormData.appendPartWithFileData(pic_data!, name: "pic", fileName: "xxoo", mimeType: "image/png")
+            }, success: { ( _ , respond) -> Void in
+                print("为什么不走这个方法之我成功了")
+                SVProgressHUD.showSuccessWithStatus("成功")
+            }) { ( _ , error) -> Void in
+                print("为什么不走这个方法我失败了")
                 print(error)
                 SVProgressHUD.showSuccessWithStatus("失败")
         }
-
+    
+       
     
     
     }
