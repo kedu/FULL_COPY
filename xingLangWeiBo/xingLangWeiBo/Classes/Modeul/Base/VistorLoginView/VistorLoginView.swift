@@ -14,10 +14,6 @@ protocol VistorLoginViewDelegate :NSObjectProtocol {
     func vistorWillLogin()
     //注册
     func visitorWillRegister()
-
-
-
-
 }
 
 
@@ -29,9 +25,7 @@ class VistorLoginView: UIView {
     }
     @objc func registerDidClick(){
         visitorDelegate?.visitorWillRegister()
-        
     }
-    
     //设置页面信息
     func setUIInfo( imageName : String?, title : String  ){
        iconView.hidden=false
@@ -40,33 +34,12 @@ class VistorLoginView: UIView {
         {
             self.circleView.image=UIImage(named: imageName!)
             iconView.hidden=true
-            //设置动画
-//            if  imageName != nil{
-//                
-//                print("原来是这样,空格少加了")
-//                
-//            }
-            
-            
         }else{
         
         setAni()
         }
-       
-
-
         
-        
-        
-        /**
-        /Users/apple/Desktop/新浪微博/FULL_COPY/xingLangWeiBo/xingLangWeiBo/Classes/Modeul/Base/VistorLoginView/VistorLoginView.swift:14:20: Nil cannot be assigned to type 'String'
-        
-        :returns: <#return value description#>
-        */
-    
     tipLabel.text=title
-    
-     
     
     }
     private func setAni(){
@@ -152,7 +125,6 @@ class VistorLoginView: UIView {
   
     
     private lazy var iconView : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
-    //circleView
     
       private lazy var circleView : UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
     
@@ -161,7 +133,7 @@ class VistorLoginView: UIView {
     private lazy var tipLabel : UILabel = {
        let l=UILabel()
           l.text="关注一些人,回这里看看有什么惊喜关注一些人,回这里看看有什么惊喜"
-//        l.text = "你好"
+
          l.textAlignment = NSTextAlignment.Center
         l.font = UIFont.systemFontOfSize(14)
         l.textColor = UIColor.lightGrayColor()
@@ -187,7 +159,6 @@ class VistorLoginView: UIView {
     private lazy var registerBtn : UIButton = {
         
         let btn = UIButton()
-        
         btn .setTitle("注册", forState: .Normal)
         btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState:.Normal)
         btn.setTitleColor(UIColor.orangeColor(), forState: .Normal)
@@ -196,20 +167,7 @@ class VistorLoginView: UIView {
         
     }()
     
-  
-
-
-
-
-
-
+ 
 
 }
-private func otherConstraint(){
-//    addConstraint(NSLayoutConstraint(item: iconView, attribute: .CenterX, relatedBy: .Equal, toItem: circleView, attribute: .CenterX, multiplier: 1.0, constant: 0))
-//    addConstraint( NSLayoutConstraint(item: iconView, attribute: .CenterY, relatedBy: .Equal, toItem: circleView, attribute: .CenterY, multiplier: 1.0, constant: 0)
 
-
-
-
-}

@@ -54,12 +54,8 @@ class Oauth2ViewController: UIViewController {
     private func loadOauthPage(){
       let urlString="https://api.weibo.com/oauth2/authorize?"+"client_id="+client_id+"&redirect_uri="+redirect_uri
        let url = NSURL(string: urlString)
-//        print(url)
         let request=NSURLRequest(URL: url!)
         webView.loadRequest(request)
-        
-    
-    
     }
     @objc private func fullAccount(){
     
@@ -122,14 +118,24 @@ extension Oauth2ViewController:UIWebViewDelegate{
         let codeStr = "code="
         let code = query.substringFromIndex(codeStr.endIndex)
         print(code)
-//      loadAccessToken(code)
         userAccountViewModel().loadAccessToken(code) { (error) -> () in
+            //加载完成后要做的事
             print("come here")
             self.dismissViewControllerAnimated(true, completion: nil)
+            //判断是否要刷新ui
+            self.updateUI()
             
         }
         
         return false
+    }
+    func updateUI(){
+    
+     //登录成功,重新加载VC
+     UIApplication.sharedApplication().keyWindow?.rootViewController = MainViewController()
+    
+    
+    
     }
 
 //    加载失败

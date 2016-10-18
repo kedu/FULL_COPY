@@ -12,7 +12,6 @@ class MainViewController: UITabBarController {
     //点击加号做的事情
     @objc private func composeDidClick(){
     print(__FUNCTION__)
-//        let composeVC = composeViewController()
         let sb = UIStoryboard(name: "Compose", bundle: nil)
         let composeVC = sb.instantiateInitialViewController()
         let nav = NavViewController(rootViewController: composeVC!)
@@ -33,10 +32,17 @@ class MainViewController: UITabBarController {
         
     }
     private  func  addChildviewcontrollers() {
+        /*
             addChildViewController(HomeTableViewController(), title: "首页", imageName: "tabbar_home")
            addChildViewController(MessageTableViewController(), title: "消息", imageName: "tabbar_message_center")
         addChildViewController(DiscoverTableViewController(), title: "发现", imageName: "tabbar_discover")
         addChildViewController(ProfileTableViewController(), title: "我", imageName: "tabbar_profile")
+*/
+        
+        addChildViewControllerWithName("HomeTableViewController", title: "首页", imageName: "tabbar_home")
+        addChildViewControllerWithName("MessageTableViewController", title: "消息", imageName: "tabbar_message_center")
+        addChildViewControllerWithName("DiscoverTableViewController", title: "发现", imageName: "tabbar_discover")
+        addChildViewControllerWithName("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
         //重载
     }
     private func addChildViewController(vc:UIViewController ,title:String, imageName:String ) {
@@ -49,6 +55,14 @@ class MainViewController: UITabBarController {
         vc.tabBarItem.image=UIImage(named: imageName)
 
         addChildViewController(nav)
+    }
+    private func addChildViewControllerWithName(name : String,title : String ,imageName : String) -> UIViewController{
+        let sb = UIStoryboard(name: name , bundle: nil)
+        print(name)
+        let vc = sb.instantiateInitialViewController()
+        addChildViewController(vc!, title: title, imageName: imageName)
+      return vc!
+        
     }
 
     override func didReceiveMemoryWarning() {

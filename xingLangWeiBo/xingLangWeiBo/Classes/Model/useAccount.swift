@@ -9,12 +9,12 @@
 import UIKit
 //保存用户信息
 class useAccount: NSObject,NSCoding {
+    //token值
     var  access_token :String?
     var  expires_in:NSTimeInterval=0 {
         didSet {
         
         expires_date = NSDate(timeIntervalSinceNow: expires_in)
-        
         
         }
     

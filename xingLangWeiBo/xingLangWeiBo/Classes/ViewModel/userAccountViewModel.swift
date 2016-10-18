@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import AFNetworking
+//保存用户个人信息
 //viewModel将一些业务逻辑封装到这个类里 让这个类隔离的更好
 //网络方法
 class userAccountViewModel: NSObject {
@@ -27,7 +28,7 @@ class userAccountViewModel: NSObject {
     override init() {
         account = useAccount.loadAccount()
     }
-    
+    //通过code获取token值
     func loadAccessToken(code:String,finished: (error : NSError?) -> ()){
         let urlString = "https://api.weibo.com/oauth2/access_token"
         let parmeters = ["client_id":client_id,"client_secret":client_secret,"grant_type":"authorization_code","code":code,"redirect_uri":redirect_uri]
@@ -41,9 +42,7 @@ class userAccountViewModel: NSObject {
                 let account = useAccount(dict: dict)
                 print(account)
                 self.loadUseInfo(account, finished: finished)
-                //              let access_token = dict["access_token"] as? String
-                //              let uid = dict["uid"] as? String
-                //                self.loadUseInfo(account)
+        
             }
             
             }) { (_, error) -> Void in
@@ -59,7 +58,6 @@ class userAccountViewModel: NSObject {
         AFN.GET(urlString, parameters: pares, success: { (_, result) -> Void in
             print(result)
             if let dict = result as? [String:AnyObject] {
-                
                 account.avatar_large=dict["avatar_large"] as? String
                 account.name=dict["name"] as? String
                 account.saveAccount()
@@ -71,7 +69,6 @@ class userAccountViewModel: NSObject {
                 print(error)
                 finished(error: error)
         }
-        //保存用户数据
         
         
         

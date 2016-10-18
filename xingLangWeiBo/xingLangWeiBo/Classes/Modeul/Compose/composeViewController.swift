@@ -26,7 +26,7 @@ class composeViewController: UIViewController,UITextViewDelegate{
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发送", style: .Plain, target: self, action: "compose")
         let input = InputView()
         input.frame = CGRect(x: 0, y: 0, width: 375, height: 120)
-        input.backgroundColor = UIColor.orangeColor() //橙色区域正常,蓝色区域偏小,黑色区域偏大
+//        input.backgroundColor = UIColor.orangeColor() //橙色区域正常,蓝色区域偏小,黑色区域偏大
         input.delegate=self
          textView.addSubview(input)
         self.input = input
