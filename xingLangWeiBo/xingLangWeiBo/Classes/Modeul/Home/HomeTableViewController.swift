@@ -62,9 +62,18 @@ class HomeTableViewController: BaseTableViewController {
                 homeModel.verified_level = 100
                 
                 }
+                //retweeted_status
+                let obj1 = (dict_tmp as! NSDictionary).objectForKey("retweeted_status") as? NSObject
+                if (obj1 == nil ){
+                    print("我为空l")
+                    
+                }
+                else
+                {
+                    homeModel.retweeted_status =  dict_tmp["retweeted_status"] as! NSDictionary}
                 //thumbnail_pic
-                let obj = (dict_tmp as! NSDictionary).objectForKey("pic_urls") as! NSObject
-                if (obj.isKindOfClass(NSNull) ){
+                let obj = (dict_tmp as! NSDictionary).objectForKey("pic_urls") as? NSObject
+                if (obj == nil) {
                 print("我为空l")
                 
                 }

@@ -26,7 +26,7 @@ class HomeModel: NSObject {
     /** 微博作者的用户信息字段 */
     var account : userAccountViewModel?
     /** 被转发的原微博信息字段，当该微博为转发微博时返回 */
-    var retweeted_status : String?
+    var retweeted_status : NSDictionary?
     /** 微博配图地址。多图时返回多图链接。无配图返回“[]” */
     var pic_urls : NSArray?
     //用户头像

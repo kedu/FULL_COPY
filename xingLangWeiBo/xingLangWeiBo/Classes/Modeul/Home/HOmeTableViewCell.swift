@@ -9,6 +9,9 @@
 import UIKit
 
 class HOmeTableViewCell: UITableViewCell {
+    @IBOutlet weak var for_other_conView: UIView!
+    @IBOutlet weak var for_other: UILabel!
+    @IBOutlet weak var for_other_height: NSLayoutConstraint!
 //配图容器
     @IBOutlet weak var collectView: UICollectionView!
     //配图高度
@@ -115,6 +118,26 @@ class HOmeTableViewCell: UITableViewCell {
                 
 
                 }
+                //转发微博
+                //是否转发
+                let iszf = (homeModel_tmp!.retweeted_status == nil)
+                if ((iszf) == true){
+                    for_other.hidden = true
+                    for_other_height.constant = 0
+                    
+                }else {
+                    for_other.hidden = false
+                    let str = homeModel_tmp!.retweeted_status?["user"]!["name"] as! String + ":" + ((homeModel_tmp!.retweeted_status?["text"])! as! String) as! String
+              for_other.text = str
+                    print(for_other.text)
+                    //高度
+                for_other_height.constant = for_other.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height + 10
+                    
+                    
+                    
+
+}
+               
                 
             
                 
@@ -204,15 +227,23 @@ class HOmeTableViewCell: UITableViewCell {
         //设置原创微博正文最大的宽度
         let screenWith = UIScreen.mainScreen().bounds.size.width
         contentText.preferredMaxLayoutWidth = screenWith - 10
+        for_other.preferredMaxLayoutWidth = screenWith - 10
     }
     //获取指定行数据cell的高度
     func cellHeightWithHomeModel(homeModel:HomeModel?) -> CGFloat{
       self.homeModel = homeModel
+        layoutIfNeeded()
         //计算高度
+        let iszf = (homeModel_tmp!.retweeted_status == nil)
+        if ((iszf) == true){
         
+         return weibocellheigeht.constant+10
+        }else{
+        
+        let height = for_other_conView.frame.origin.y + for_other_height.constant + 10
+        return height
+        }
     
-    
-    return weibocellheigeht.constant+10
     }
 
     //为重用cell做准备
@@ -247,7 +278,7 @@ extension HOmeTableViewCell: UICollectionViewDelegate,UICollectionViewDataSource
         }
         if (homeModel_tmp?.pic_urls != nil){
             let urlStr = homeModel_tmp?.pic_urls![indexPath.item]["thumbnail_pic"] as! String
-             print(urlStr)
+//             print(urlStr)
               cell.imageUrl = NSURL(string: urlStr )
         }
       
