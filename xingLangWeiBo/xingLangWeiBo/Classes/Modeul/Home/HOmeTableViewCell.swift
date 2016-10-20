@@ -9,7 +9,11 @@
 import UIKit
 
 class HOmeTableViewCell: UITableViewCell {
-
+//配图容器
+    @IBOutlet weak var collectView: UICollectionView!
+    //配图高度
+    @IBOutlet weak var phontoHeight: NSLayoutConstraint!
+    @IBOutlet weak var verImageview: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var vip: UIImageView!
@@ -25,24 +29,95 @@ class HOmeTableViewCell: UITableViewCell {
             if homeModel_tmp != nil {
                 //头像
                 let url = NSURL(string: (homeModel_tmp?.profile_image_url)!)
+                icon.layer.masksToBounds = true
+                icon.layer.cornerRadius = 25
+                icon.layer.borderWidth = 0.2
+                icon.layer.borderColor = UIColor.whiteColor().CGColor
+                
                 icon.setImageWithURL(url!, placeholderImage: UIImage(named:"compose_keyboardbutton_background_highlighted" ))
                 //昵称
                 name.text = homeModel_tmp!.name
                 //会员图标
+                vip.hidden = false
+                let tORf = homeModel_tmp?.isVip()
+                if (tORf != false) {
+                    let rangk = homeModel_tmp?.mbrank
+                    let nameStr = NSString(string: "common_icon_membership_level\(rangk!)")
+                
+                    vip.image = UIImage(named: nameStr as String)
+                  name.textColor = UIColor.orangeColor()
+                }else if (tORf == false){
+//                    let nameStr = NSString(string: "common_icon_membership_expired")
+                    vip.hidden = true
+//
+//                    vip.image = UIImage(named: nameStr as String)
+                    name.textColor = UIColor.grayColor()
+                }
+                //认证
+                verImageview.hidden = false
+                switch(Int((homeModel_tmp?.verified_level)!)){
+                case 0://个人
+                    verImageview.image = UIImage(named: "avatar_vip")
+                    break
+                case 2:
+                    verImageview.image = UIImage(named: "avatar_enterprise_vip")
+                    break
+                case 3:
+                    verImageview.image = UIImage(named: "avatar_enterprise_vip")
+                    break
+                case 5: verImageview.image = UIImage(named: "avatar_enterprise_vip")
+                    break
+                case 220: verImageview.image = UIImage(named: "avatar_grassroot")
+                    break
+                default:
+                    verImageview.hidden = true
+                    break
+                
+                }
                 //时间
                  creat_time.text = dealwith((homeModel_tmp?.created_at)!)
 //                需要先处理一下
                 //正文
                 contentText.text = homeModel_tmp?.text
                 contentText.sizeToFit()
-                print(contentText.text)
+//                print(contentText.text)
                 //来源
                 source.text = dealwithSource( (homeModel_tmp?.source)!) as String
-                print(source.text)
+//                print(source.text)
                 //正文的高度
                 let conHeight = contentText.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
                 //原创微博的高度
                 weibocellheigeht.constant = contentText.frame.origin.y + conHeight
+                //配图
+                if (homeModel_tmp?.pic_urls?.count > 0){
+                    let count = homeModel_tmp?.pic_urls?.count
+                    var row = 0
+                //行数
+                    if (count! % 3 == 0){
+                    row = count!/3
+                    }else {
+                    row = count!/3+1
+                    }
+                    //高度
+                    let tmp = (row*70 + (row-1)*10)
+                    phontoHeight.constant  = CGFloat(tmp)
+                    
+                     weibocellheigeht.constant = weibocellheigeht.constant + phontoHeight.constant + 10
+
+                    //加载
+                    collectView.reloadData()
+
+                    
+                    
+                }else{
+                //没有
+                    phontoHeight.constant = 0
+                
+
+                }
+                
+            
+                
 
 }
             
@@ -119,7 +194,6 @@ class HOmeTableViewCell: UITableViewCell {
             formatter.dateFormat = "yy年MM月dd日 HH时:mm分"
                         return formatter.stringFromDate(createdDate)
         
-        
         }
 
     }
@@ -139,8 +213,8 @@ class HOmeTableViewCell: UITableViewCell {
     
     
     return weibocellheigeht.constant+10
-    
     }
+
     //为重用cell做准备
     override func prepareForReuse() {
         homeModel = nil
@@ -148,10 +222,44 @@ class HOmeTableViewCell: UITableViewCell {
         
     }
     
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
+}
+extension HOmeTableViewCell: UICollectionViewDelegate,UICollectionViewDataSource{
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (homeModel_tmp?.pic_urls != nil){
+        return (homeModel_tmp?.pic_urls?.count)!
+        }else {
+        return 0
+        }
+     
+    }
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectView.dequeueReusableCellWithReuseIdentifier("photoCell", forIndexPath: indexPath) as! photoCell
+        if(homeModel_tmp?.pic_urls?.count > 0){
+        
+        
+        }
+        if (homeModel_tmp?.pic_urls != nil){
+            let urlStr = homeModel_tmp?.pic_urls![indexPath.item]["thumbnail_pic"] as! String
+             print(urlStr)
+              cell.imageUrl = NSURL(string: urlStr )
+        }
+      
+        
+        
+        
+        return cell
+    }
+    
+    
+    
+    
+    
+    
 }

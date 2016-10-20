@@ -55,6 +55,24 @@ class HomeTableViewController: BaseTableViewController {
                  homeModel.attitudes_count = dict_tmp["attitudes_count"] as! Int
                  homeModel.profile_image_url = dict_tmp["user"]!["profile_image_url"] as! String
                 homeModel.name = dict_tmp["user"]!["name"] as! String
+                homeModel.mbrank = dict_tmp["user"]!["mbrank"] as! Int
+                 homeModel.mbtype = dict_tmp["user"]!["mbtype"] as! Int
+                if ((dict_tmp["user"]! as! NSDictionary).objectForKey("verified_level") != nil){
+                    homeModel.verified_level = dict_tmp["user"]!["verified_level"] as! Int}else{
+                homeModel.verified_level = 100
+                
+                }
+                //thumbnail_pic
+                let obj = (dict_tmp as! NSDictionary).objectForKey("pic_urls") as! NSObject
+                if (obj.isKindOfClass(NSNull) ){
+                print("我为空l")
+                
+                }
+                else
+                {
+                    homeModel.pic_urls = dict_tmp["pic_urls"] as? NSArray }
+
+                
             //添加模型
                 self.data?.addObject(homeModel)
             }

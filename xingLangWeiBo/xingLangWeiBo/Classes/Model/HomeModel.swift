@@ -33,5 +33,22 @@ class HomeModel: NSObject {
     var profile_image_url : String?
     //昵称
     var name : String?
+    //用户type
+    var mbtype : Int?
+    //用户会员等级
+    var mbrank : Int?
+    //认证等级
+    var verified_level : Int?
+    func isVip() -> Bool{
+        if mbtype > 2 {
+        
+        
+        return true
+        }
+        return false
+    }
+    
+
+    
 
 }

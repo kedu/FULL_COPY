@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18465D0A1DB8E91C006B9134 /* photoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18465D091DB8E91C006B9134 /* photoCell.swift */; };
 		18D1DD681DAC870700806993 /* userAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1DD671DAC870700806993 /* userAccountViewModel.swift */; };
 		18D1DEB31DB0CA6400806993 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1DEB11DB0CA6400806993 /* UIButton+Extension.swift */; };
 		18D1DEB41DB0CA6400806993 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1DEB21DB0CA6400806993 /* UILabel+Extension.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0BAF96281014B619972263F7 /* Pods_xingLangWeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xingLangWeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18465D091DB8E91C006B9134 /* photoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoCell.swift; sourceTree = "<group>"; };
 		18D1DD671DAC870700806993 /* userAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userAccountViewModel.swift; sourceTree = "<group>"; };
 		18D1DEB11DB0CA6400806993 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		18D1DEB21DB0CA6400806993 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				18E8B1671DB6480B00C266B6 /* IWUser.h */,
 				18E8B1681DB6480B00C266B6 /* IWUser.m */,
 				18E8B1621DB6480A00C266B6 /* xingLangWeiBo-Bridging-Header.h */,
+				18465D091DB8E91C006B9134 /* photoCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				18DF9A5F1DA89E6C00C0DA9A /* MessageTableViewController.swift in Sources */,
 				18E8B1771DB6488900C266B6 /* NSDate+NJ.m in Sources */,
 				18DF9A611DA89E7800C0DA9A /* DiscoverTableViewController.swift in Sources */,
+				18465D0A1DB8E91C006B9134 /* photoCell.swift in Sources */,
 				18E8B1781DB6488900C266B6 /* NSString+Dir.m in Sources */,
 				18E8B1371DB2710E00C266B6 /* PhotoCollViewController.swift in Sources */,
 				18D1DEB71DB0CC9400806993 /* composeViewController.swift in Sources */,
