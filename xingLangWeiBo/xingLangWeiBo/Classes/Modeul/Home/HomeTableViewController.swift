@@ -40,29 +40,25 @@ class HomeTableViewController: BaseTableViewController {
         AFN.GET(urlString, parameters: nil, progress: nil, success: { (task, result) -> Void in
             print("请求成功")
             SVProgressHUD.dismiss()
-//            print(result)
-            /**
-            *    // 1.存储获取到得微博数据
-            // 获取字典数组
-            NSArray *newStatus = responseObject[@"statuses"];
-            // 将字典数组转换为模型数据
-            NSArray *models = [IWStatus objectArrayWithKeyValuesArray:newStatus];
-            NSRange range = NSMakeRange(0, models.count);
-            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-            [self.statuses insertObjects:models atIndexes:indexSet];
-           
-            */
+
             let statuses = result!["statuses"] as! NSArray
             for  dict  in statuses {
                 let dict_tmp = dict as! NSDictionary
               let homeModel = HomeModel()
+     
                 homeModel.source = dict_tmp["source"] as! String//来源
-                
-                print(homeModel.source!)
-              
+                 homeModel.created_at = dict_tmp["created_at"] as! String
+                 homeModel.text = dict_tmp["text"] as! String
+                 homeModel.idstr = dict_tmp["idstr"] as! String
+                 homeModel.reposts_count = dict_tmp["reposts_count"] as! Int
+                 homeModel.comments_count = dict_tmp["comments_count"] as! Int
+                 homeModel.attitudes_count = dict_tmp["attitudes_count"] as! Int
+                 homeModel.profile_image_url = dict_tmp["user"]!["profile_image_url"] as! String
+                homeModel.name = dict_tmp["user"]!["name"] as! String
             //添加模型
                 self.data?.addObject(homeModel)
             }
+            self.tableView.reloadData()
 
             
             
@@ -74,6 +70,13 @@ class HomeTableViewController: BaseTableViewController {
                 print(error)
         }
         
+    }
+    //返回cell的高度
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    let cell = tableView.dequeueReusableCellWithIdentifier("HOmeTableViewCell") as! HOmeTableViewCell
+        
+        
+        return cell.cellHeightWithHomeModel(data![indexPath.row] as! HomeModel)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -89,21 +92,21 @@ class HomeTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return (data?.count)!
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         //创建cell
-        if let cell = tableView.dequeueReusableCellWithIdentifier("HOmeTableViewCell") {
-        return cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("HOmeTableViewCell") as? HOmeTableViewCell
+        if data?.count > 0 {
+            cell?.homeModel = data![indexPath.row] as? HomeModel
         }
-        let cell = HOmeTableViewCell(style: .Default, reuseIdentifier: "HOmeTableViewCell")
-       
-        return cell
+        return cell!
     
     
     
     
     }
+    
 
 
 

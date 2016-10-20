@@ -29,11 +29,9 @@ class HomeModel: NSObject {
     var retweeted_status : String?
     /** 微博配图地址。多图时返回多图链接。无配图返回“[]” */
     var pic_urls : NSArray?
-    //字典转模型
-//    init(dict:[String : AnyObject]) {
-//        super.init()
-////        super.init()
-//        setValuesForKeysWithDictionary(dict)
-//        
-//    }
+    //用户头像
+    var profile_image_url : String?
+    //昵称
+    var name : String?
+
 }

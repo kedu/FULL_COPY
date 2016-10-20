@@ -9,13 +9,145 @@
 import UIKit
 
 class HOmeTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var vip: UIImageView!
+    @IBOutlet weak var creat_time: UILabel!
+    @IBOutlet weak var source: UILabel!
+    @IBOutlet weak var contentText: UILabel!
+    @IBOutlet weak var weibocellheigeht: NSLayoutConstraint!
+    var homeModel_tmp : HomeModel?
     //数据模型
+    var homeModel : HomeModel? {
+        set{
+           homeModel_tmp = newValue
+            if homeModel_tmp != nil {
+                //头像
+                let url = NSURL(string: (homeModel_tmp?.profile_image_url)!)
+                icon.setImageWithURL(url!, placeholderImage: UIImage(named:"compose_keyboardbutton_background_highlighted" ))
+                //昵称
+                name.text = homeModel_tmp!.name
+                //会员图标
+                //时间
+                 creat_time.text = dealwith((homeModel_tmp?.created_at)!)
+//                需要先处理一下
+                //正文
+                contentText.text = homeModel_tmp?.text
+                contentText.sizeToFit()
+                print(contentText.text)
+                //来源
+                source.text = dealwithSource( (homeModel_tmp?.source)!) as String
+                print(source.text)
+                //正文的高度
+                let conHeight = contentText.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+                //原创微博的高度
+                weibocellheigeht.constant = contentText.frame.origin.y + conHeight
+
+}
+            
+        }
+        get{
+        
+        
+        return nil
+        }
+    
+    
+    }
+    func dealwithSource(var source_str:NSString) -> NSString{
+    
+        // 1.计算从什么地方开始截取
+        let startRange = source_str.rangeOfString(">") as! NSRange
+        let startIndex = startRange.location + 1
+        // 2.计算截取的长度
+        //#warning rangeOfString方法会从字符串的开头开始查找, 只要查找到第一个就不会继续查找
+        let endRange  = source_str.rangeOfString("</") as! NSRange
+        let length = endRange.location - startIndex;
+        // 3.截取字符串
+        if (startRange.location != NSNotFound &&
+            endRange.location != NSNotFound) {
+                let resultStr = source_str .substringWithRange(NSMakeRange(startIndex, length) )
+                source_str = resultStr;
+        }
+        return source_str
+    
+    
+    }
+    func dealwith(string : String) -> String {
+//
+
+        let formatter = NSDateFormatter()
+//        #warning 注意: 如果是真机, 还需要设置时间所属的区域
+        formatter.locale = NSLocale(localeIdentifier: "en_US")
+//        // 指定服务器返回时间的格式
+//        // Mon Feb 02 18:15:20 +0800 2015
+        formatter.dateFormat = "EEE MMM  dd HH:mm:ss Z yyyy"
+     // 1.将服务器返回的字符串转换为NSDate
+        let createdDate = formatter.dateFromString(string)!
+ 
+//        // 2.判断服务器返回的时间, 根据时间返回对应的字符串
+        if createdDate.isThisYear() {
+            if createdDate.isToday(){
+                let comps = createdDate.deltaWithNow
+                if comps().hour >= 1 {
+                
+                 
+                return "\(comps().hour)小时前"
+                }else if comps().minute > 1 {
+                return "\(comps().minute )分钟以前"
+                
+                }else {
+                return "刚刚"
+                
+                }
+
+            
+            
+            }else if createdDate.isYesterday() {
+              formatter.dateFormat = "昨天 HH时:mm分"
+                return formatter.stringFromDate(createdDate)
+            }else {
+                                formatter.dateFormat = "MM月dd日  HH时:mm分"
+                                return formatter.stringFromDate(createdDate)
+            
+            }
+        
+  
+        
+        }else{
+            formatter.dateFormat = "yy年MM月dd日 HH时:mm分"
+                        return formatter.stringFromDate(createdDate)
+        
+        
+        }
+
+    }
     var status : IWStatus?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //设置原创微博正文最大的宽度
+        let screenWith = UIScreen.mainScreen().bounds.size.width
+        contentText.preferredMaxLayoutWidth = screenWith - 10
     }
-
+    //获取指定行数据cell的高度
+    func cellHeightWithHomeModel(homeModel:HomeModel?) -> CGFloat{
+      self.homeModel = homeModel
+        //计算高度
+        
+    
+    
+    return weibocellheigeht.constant+10
+    
+    }
+    //为重用cell做准备
+    override func prepareForReuse() {
+        homeModel = nil
+        
+        
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
