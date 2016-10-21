@@ -6,7 +6,7 @@ FULL_COPY 完整的模仿新浪微博
 //(http://github.com/kedu/FULL_COPY/raw/master/images-folder/xxx.png)
 
 //未登陆界面
- ![image](https://github.com/kedu/FULL_COPY/raw/master/screenshots/notLogin.png)
+ ![image](https://github.com/kedu/FULL_COPY/raw/master/images-folder/notLogin.png)
 /Users/apple/Desktop/Simulator Screen Shot 2016年10月21日 下午4.24.24.png
 //网页登陆
 /Users/apple/Desktop/Simulator Screen Shot 2016年10月21日 下午4.25.23.png
