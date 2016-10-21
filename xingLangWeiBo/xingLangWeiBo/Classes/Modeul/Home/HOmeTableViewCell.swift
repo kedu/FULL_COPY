@@ -179,7 +179,7 @@ class HOmeTableViewCell: UITableViewCell {
                     }
                     
                     //底部视图
-//                    for_other_button.addTarget(self, action: "didclick", forControlEvents: .TouchUpInside)
+                    for_other_button.addTarget(self, action: "didclick", forControlEvents: .TouchUpInside)
                     if (homeModel_tmp?.comments_count?.longLongValue > 0){
 
                      commont_btn.setTitle(homeModel_tmp?.comments_count?.description, forState: .Normal)
