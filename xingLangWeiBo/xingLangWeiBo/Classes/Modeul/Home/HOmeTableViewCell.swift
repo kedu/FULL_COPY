@@ -179,7 +179,7 @@ class HOmeTableViewCell: UITableViewCell {
                     }
                     
                     //底部视图
-                    for_other_button.addTarget(self, action: "didclick", forControlEvents: .TouchUpInside)
+//                    for_other_button.addTarget(self, action: "didclick", forControlEvents: .TouchUpInside)
                     if (homeModel_tmp?.comments_count?.longLongValue > 0){
 
                      commont_btn.setTitle(homeModel_tmp?.comments_count?.description, forState: .Normal)
@@ -199,6 +199,9 @@ class HOmeTableViewCell: UITableViewCell {
                     }else {
                         unlike_btn.setTitle("赞", forState: .Normal)
                     }
+                    bringSubviewToFront(for_other_button)
+                    bringSubviewToFront(commont_btn)
+                    bringSubviewToFront(unlike_btn)
                 
                     
 
