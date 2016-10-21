@@ -24,6 +24,11 @@ class HOmeTableViewCell: UITableViewCell {
     @IBOutlet weak var source: UILabel!
     @IBOutlet weak var contentText: UILabel!
     @IBOutlet weak var weibocellheigeht: NSLayoutConstraint!
+    //转发容器
+    @IBOutlet weak var for_other_collectView: UICollectionView!
+    //转发配图高度
+    @IBOutlet weak var for_other_phontoHeight: NSLayoutConstraint!
+    var isFor_other : Bool?
     var homeModel_tmp : HomeModel?
     //数据模型
     var homeModel : HomeModel? {
@@ -85,8 +90,12 @@ class HOmeTableViewCell: UITableViewCell {
                 contentText.sizeToFit()
 //                print(contentText.text)
                 //来源
-                source.text = dealwithSource( (homeModel_tmp?.source)!) as String
-//                print(source.text)
+                if ( homeModel_tmp?.source !=  ""){
+                source.text = dealwithSource( (homeModel_tmp?.source)!) as String}else{
+                source.text = "未通过审核应用"
+
+}
+//                print(source.text! + "是source")
                 //正文的高度
                 let conHeight = contentText.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
                 //原创微博的高度
@@ -124,14 +133,46 @@ class HOmeTableViewCell: UITableViewCell {
                 if ((iszf) == true){
                     for_other.hidden = true
                     for_other_height.constant = 0
+                    isFor_other = false
                     
                 }else {
+                    isFor_other = true
                     for_other.hidden = false
                     let str = homeModel_tmp!.retweeted_status?["user"]!["name"] as! String + ":" + ((homeModel_tmp!.retweeted_status?["text"])! as! String) as! String
               for_other.text = str
                     print(for_other.text)
                     //高度
                 for_other_height.constant = for_other.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height + 10
+                    
+                    //转发配图
+                    let source = homeModel_tmp?.retweeted_status?["pic_urls"]
+                    if (source!.count > 0){
+                        let count = source!.count
+                        var row = 0
+                        //行数
+                        if (count! % 3 == 0){
+                            row = count!/3
+                        }else {
+                            row = count!/3+1
+                        }
+                        //高度
+                        let tmp = (row*70 + (row-1)*10)
+                        for_other_phontoHeight.constant  = CGFloat(tmp)
+                        
+                        for_other_height.constant = for_other_height.constant + for_other_phontoHeight.constant + 10
+                        
+                        //加载
+                        for_other_collectView.reloadData()
+                        
+                        
+                        
+                    }else{
+                        //没有
+                        for_other_phontoHeight.constant = 0
+                        
+                        
+                    }
+
                     
                     
                     
@@ -156,12 +197,12 @@ class HOmeTableViewCell: UITableViewCell {
     func dealwithSource(var source_str:NSString) -> NSString{
     
         // 1.计算从什么地方开始截取
-        let startRange = source_str.rangeOfString(">") as! NSRange
+        let startRange = source_str.rangeOfString(">") 
         let startIndex = startRange.location + 1
         // 2.计算截取的长度
         //#warning rangeOfString方法会从字符串的开头开始查找, 只要查找到第一个就不会继续查找
-        let endRange  = source_str.rangeOfString("</") as! NSRange
-        let length = endRange.location - startIndex;
+        let endRange  = source_str.rangeOfString("</")
+        let length = endRange.location - startIndex
         // 3.截取字符串
         if (startRange.location != NSNotFound &&
             endRange.location != NSNotFound) {
@@ -263,29 +304,47 @@ class HOmeTableViewCell: UITableViewCell {
 }
 extension HOmeTableViewCell: UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (homeModel_tmp?.pic_urls != nil){
-        return (homeModel_tmp?.pic_urls?.count)!
+   
+        let source = homeModel_tmp?.retweeted_status?["pic_urls"]
+
+        if (isFor_other == true){
+             return source!.count
         }else {
-        return 0
+            if (homeModel_tmp?.pic_urls != nil){
+                return (homeModel_tmp?.pic_urls?.count)!
+            }else {
+                return 0
+            }
         }
      
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectView.dequeueReusableCellWithReuseIdentifier("photoCell", forIndexPath: indexPath) as! photoCell
-        if(homeModel_tmp?.pic_urls?.count > 0){
-        
-        
-        }
-        if (homeModel_tmp?.pic_urls != nil){
-            let urlStr = homeModel_tmp?.pic_urls![indexPath.item]["thumbnail_pic"] as! String
-//             print(urlStr)
-              cell.imageUrl = NSURL(string: urlStr )
-        }
       
+         let source = homeModel_tmp?.retweeted_status?["pic_urls"]
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("photoCell", forIndexPath: indexPath) as! photoCell
+        if (isFor_other == true){
+         
+            let urlStr = source![indexPath.item]["thumbnail_pic"] as! String
+            cell.imageUrl = NSURL(string: urlStr )
+
         
+        }else{
+            
+            if (homeModel_tmp?.pic_urls != nil){
+                let urlStr = homeModel_tmp?.pic_urls![indexPath.item]["thumbnail_pic"] as! String
+                //             print(urlStr)
+                cell.imageUrl = NSURL(string: urlStr )
+            }
+            
+        }
+        
+
         
         
         return cell
+
+        
+
     }
     
     
