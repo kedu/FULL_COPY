@@ -23,6 +23,11 @@ class HOmeTableViewCell: UITableViewCell {
     @IBOutlet weak var creat_time: UILabel!
     @IBOutlet weak var source: UILabel!
     @IBOutlet weak var contentText: UILabel!
+  
+    @IBOutlet weak var unlike_btn: UIButton!
+    @IBOutlet weak var commont_btn: UIButton!
+    @IBOutlet weak var for_other_button: UIButton!
+    @IBOutlet weak var bottomViewHeight: NSLayoutConstraint!
     @IBOutlet weak var weibocellheigeht: NSLayoutConstraint!
     //转发容器
     @IBOutlet weak var for_other_collectView: UICollectionView!
@@ -172,6 +177,30 @@ class HOmeTableViewCell: UITableViewCell {
                         
                         
                     }
+                    
+                    //底部视图
+                    for_other_button.addTarget(self, action: "didclick", forControlEvents: .TouchUpInside)
+                    if (homeModel_tmp?.comments_count?.longLongValue > 0){
+
+                     commont_btn.setTitle(homeModel_tmp?.comments_count?.description, forState: .Normal)
+                    }else {
+                      commont_btn.setTitle("评论", forState: .Normal)
+}
+                   
+                    if (homeModel_tmp?.reposts_count?.longLongValue > 0){
+                        
+                        for_other_button.setTitle(homeModel_tmp?.reposts_count?.description, forState: .Normal)
+                    }else {
+                        for_other_button.setTitle("转发", forState: .Normal)
+                    }
+                    if (homeModel_tmp?.attitudes_count?.longLongValue > 0){
+                        
+                        unlike_btn.setTitle(homeModel_tmp?.attitudes_count?.description, forState: .Normal)
+                    }else {
+                        unlike_btn.setTitle("赞", forState: .Normal)
+                    }
+                
+                    
 
                     
                     
@@ -192,6 +221,10 @@ class HOmeTableViewCell: UITableViewCell {
         return nil
         }
     
+    
+    }
+    func didclick(){
+    print("我被点击了")
     
     }
     func dealwithSource(var source_str:NSString) -> NSString{
@@ -269,6 +302,8 @@ class HOmeTableViewCell: UITableViewCell {
         let screenWith = UIScreen.mainScreen().bounds.size.width
         contentText.preferredMaxLayoutWidth = screenWith - 10
         for_other.preferredMaxLayoutWidth = screenWith - 10
+//        UITableViewCellSelectionStyleNone
+        self.selectionStyle = UITableViewCellSelectionStyle(rawValue: 0)!
     }
     //获取指定行数据cell的高度
     func cellHeightWithHomeModel(homeModel:HomeModel?) -> CGFloat{
@@ -278,10 +313,10 @@ class HOmeTableViewCell: UITableViewCell {
         let iszf = (homeModel_tmp!.retweeted_status == nil)
         if ((iszf) == true){
         
-         return weibocellheigeht.constant+10
+         return weibocellheigeht.constant + bottomViewHeight.constant
         }else{
         
-        let height = for_other_conView.frame.origin.y + for_other_height.constant + 10
+        let height = for_other_conView.frame.origin.y + for_other_height.constant + 10+bottomViewHeight.constant-10
         return height
         }
     

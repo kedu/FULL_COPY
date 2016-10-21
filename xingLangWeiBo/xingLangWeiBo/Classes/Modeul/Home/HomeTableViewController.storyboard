@@ -218,7 +218,7 @@
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="iPQ-AP-0bl" firstAttribute="top" secondItem="N6d-ac-Cel" secondAttribute="bottom" constant="10" id="7xO-sk-GMb"/>
                                                 <constraint firstItem="N6d-ac-Cel" firstAttribute="top" secondItem="Omd-zC-Axt" secondAttribute="top" constant="10" id="ICe-DT-bvw"/>
@@ -227,22 +227,78 @@
                                                 <constraint firstItem="iPQ-AP-0bl" firstAttribute="leading" secondItem="Omd-zC-Axt" secondAttribute="leading" constant="10" id="ipb-7M-hKU"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Lq-vj-1RH" userLabel="底部视图">
+                                            <rect key="frame" x="0.0" y="270" width="600" height="44"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaI-kk-LX4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="转发" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted" title="高亮" backgroundImage="timeline_card_bottom_background_highlighted"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A34-jJ-oKo">
+                                                    <rect key="frame" x="200" y="0.0" width="200" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="评论" image="timeline_icon_comment" backgroundImage="timeline_card_bottom_background">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="highlighted" backgroundImage="timeline_card_bottom_background_highlighted"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-M8-ND7">
+                                                    <rect key="frame" x="400" y="0.0" width="200" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="赞" image="timeline_icon_unlike" backgroundImage="timeline_card_bottom_background">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="highlighted" backgroundImage="timeline_card_bottom_background_highlighted"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="TaI-kk-LX4" secondAttribute="bottom" id="0Xe-ST-yhM"/>
+                                                <constraint firstItem="u7U-M8-ND7" firstAttribute="width" secondItem="TaI-kk-LX4" secondAttribute="width" id="2nb-Ly-7h5"/>
+                                                <constraint firstAttribute="bottom" secondItem="A34-jJ-oKo" secondAttribute="bottom" id="8q4-E4-H9S"/>
+                                                <constraint firstItem="A34-jJ-oKo" firstAttribute="leading" secondItem="TaI-kk-LX4" secondAttribute="trailing" id="AsH-Ke-CP6"/>
+                                                <constraint firstItem="TaI-kk-LX4" firstAttribute="leading" secondItem="6Lq-vj-1RH" secondAttribute="leading" id="CFF-K5-jgx"/>
+                                                <constraint firstAttribute="bottom" secondItem="u7U-M8-ND7" secondAttribute="bottom" id="FQ2-Zl-XPt"/>
+                                                <constraint firstAttribute="height" constant="44" id="QVi-PX-Ck6"/>
+                                                <constraint firstItem="A34-jJ-oKo" firstAttribute="width" secondItem="TaI-kk-LX4" secondAttribute="width" id="UH8-C5-ALP"/>
+                                                <constraint firstItem="u7U-M8-ND7" firstAttribute="height" secondItem="TaI-kk-LX4" secondAttribute="height" id="VcF-Tc-U8a"/>
+                                                <constraint firstAttribute="trailing" secondItem="u7U-M8-ND7" secondAttribute="trailing" id="aUM-pb-74D"/>
+                                                <constraint firstItem="A34-jJ-oKo" firstAttribute="top" secondItem="6Lq-vj-1RH" secondAttribute="top" id="hgk-bY-CV6"/>
+                                                <constraint firstItem="TaI-kk-LX4" firstAttribute="top" secondItem="6Lq-vj-1RH" secondAttribute="top" id="ltk-DN-acR"/>
+                                                <constraint firstItem="u7U-M8-ND7" firstAttribute="leading" secondItem="A34-jJ-oKo" secondAttribute="trailing" id="sZ8-Dx-gt4"/>
+                                                <constraint firstItem="u7U-M8-ND7" firstAttribute="top" secondItem="6Lq-vj-1RH" secondAttribute="top" id="tzu-sp-zfH"/>
+                                                <constraint firstItem="A34-jJ-oKo" firstAttribute="height" secondItem="TaI-kk-LX4" secondAttribute="height" id="z9N-ab-uZt"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="0.49845038266602926" blue="0.44276157921318215" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
+                                        <constraint firstItem="6Lq-vj-1RH" firstAttribute="top" secondItem="Omd-zC-Axt" secondAttribute="bottom" id="2yR-1a-zmd"/>
                                         <constraint firstItem="Omd-zC-Axt" firstAttribute="leading" secondItem="mQU-rN-uzT" secondAttribute="leading" id="CRj-gN-Wb8"/>
                                         <constraint firstItem="Omd-zC-Axt" firstAttribute="top" secondItem="NM3-nU-Lfy" secondAttribute="bottom" id="Isj-8y-oqC"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Lq-vj-1RH" secondAttribute="trailing" id="Msm-o1-5Kf"/>
                                         <constraint firstItem="NM3-nU-Lfy" firstAttribute="leading" secondItem="mQU-rN-uzT" secondAttribute="leading" id="XOe-Qg-nWl"/>
                                         <constraint firstAttribute="trailing" secondItem="Omd-zC-Axt" secondAttribute="trailing" id="aPa-JF-QAy"/>
                                         <constraint firstItem="NM3-nU-Lfy" firstAttribute="top" secondItem="mQU-rN-uzT" secondAttribute="top" id="bZn-sc-Myc"/>
                                         <constraint firstAttribute="trailing" secondItem="NM3-nU-Lfy" secondAttribute="trailing" id="hcC-6K-fRW"/>
+                                        <constraint firstItem="6Lq-vj-1RH" firstAttribute="leading" secondItem="mQU-rN-uzT" secondAttribute="leading" id="jfY-BD-oBs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bottomViewHeight" destination="QVi-PX-Ck6" id="OO7-Dj-1rU"/>
                                     <outlet property="collectView" destination="lWG-aF-MSU" id="7pp-oG-tDc"/>
+                                    <outlet property="commont_btn" destination="A34-jJ-oKo" id="M5X-S3-QfH"/>
                                     <outlet property="contentText" destination="e2c-vN-01q" id="4L5-er-c3n"/>
                                     <outlet property="creat_time" destination="MZ6-Or-TB1" id="cey-gP-20q"/>
                                     <outlet property="for_other" destination="N6d-ac-Cel" id="teB-ct-uwd"/>
+                                    <outlet property="for_other_button" destination="TaI-kk-LX4" id="poi-0C-tkR"/>
                                     <outlet property="for_other_collectView" destination="iPQ-AP-0bl" id="elW-v9-aOb"/>
                                     <outlet property="for_other_conView" destination="Omd-zC-Axt" id="C4I-f6-aX8"/>
                                     <outlet property="for_other_height" destination="KY8-G9-2Qe" id="fFa-Ym-XMY"/>
@@ -251,6 +307,7 @@
                                     <outlet property="name" destination="pSS-cD-aWb" id="y9G-v3-jXr"/>
                                     <outlet property="phontoHeight" destination="Nil-qu-aIb" id="MCE-h5-aVw"/>
                                     <outlet property="source" destination="E68-Ye-7Rk" id="btQ-fO-QjY"/>
+                                    <outlet property="unlike_btn" destination="u7U-M8-ND7" id="Uah-0z-gGL"/>
                                     <outlet property="verImageview" destination="amO-zT-d6K" id="27D-ca-lsH"/>
                                     <outlet property="vip" destination="wO8-vk-Vwb" id="fPO-lF-eKa"/>
                                     <outlet property="weibocellheigeht" destination="gOj-Ga-nXS" id="CwJ-sI-eNU"/>
@@ -265,10 +322,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sF-dt-HYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="196"/>
+            <point key="canvasLocation" x="89" y="134"/>
         </scene>
     </scenes>
     <resources>
+        <image name="timeline_card_bottom_background" width="22" height="36"/>
+        <image name="timeline_card_bottom_background_highlighted" width="22" height="36"/>
+        <image name="timeline_icon_comment" width="18" height="18"/>
+        <image name="timeline_icon_retweet" width="18" height="18"/>
+        <image name="timeline_icon_unlike" width="18" height="18"/>
         <image name="timeline_image_gif" width="27" height="20"/>
     </resources>
 </document>

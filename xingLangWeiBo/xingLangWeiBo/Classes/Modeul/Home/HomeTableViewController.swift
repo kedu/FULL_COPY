@@ -50,9 +50,9 @@ class HomeTableViewController: BaseTableViewController {
                  homeModel.created_at = dict_tmp["created_at"] as! String
                  homeModel.text = dict_tmp["text"] as! String
                  homeModel.idstr = dict_tmp["idstr"] as! String
-                 homeModel.reposts_count = dict_tmp["reposts_count"] as! Int
-                 homeModel.comments_count = dict_tmp["comments_count"] as! Int
-                 homeModel.attitudes_count = dict_tmp["attitudes_count"] as! Int
+                 homeModel.reposts_count = dict_tmp["reposts_count"] as! NSNumber
+                 homeModel.comments_count = dict_tmp["comments_count"] as! NSNumber
+                 homeModel.attitudes_count = dict_tmp["attitudes_count"] as! NSNumber
                  homeModel.profile_image_url = dict_tmp["user"]!["profile_image_url"] as! String
                 homeModel.name = dict_tmp["user"]!["name"] as! String
                 homeModel.mbrank = dict_tmp["user"]!["mbrank"] as! Int
@@ -80,6 +80,10 @@ class HomeTableViewController: BaseTableViewController {
                 else
                 {
                     homeModel.pic_urls = dict_tmp["pic_urls"] as? NSArray }
+                homeModel.comments_count = dict_tmp["comments_count"] as! Int
+                homeModel.attitudes_count = dict_tmp["attitudes_count"] as! Int
+                homeModel.reposts_count = dict_tmp["reposts_count"] as! Int
+                
 
                 
             //添加模型
@@ -101,8 +105,6 @@ class HomeTableViewController: BaseTableViewController {
     //返回cell的高度
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     let cell = tableView.dequeueReusableCellWithIdentifier("HOmeTableViewCell") as! HOmeTableViewCell
-        
-        
         return cell.cellHeightWithHomeModel(data![indexPath.row] as! HomeModel)
     }
     override func didReceiveMemoryWarning() {

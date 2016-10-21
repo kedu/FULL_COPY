@@ -18,11 +18,11 @@ class HomeModel: NSObject {
     /** 微博来源 */
     var source : String?
     /** 转发数 */
-    var reposts_count : Int?
+    var reposts_count : NSNumber?
     /** 评论数 */
-     var comments_count : Int?
+     var comments_count : NSNumber?
     /** 表态数(赞) */
-    var attitudes_count : Int?
+    var attitudes_count : NSNumber?
     /** 微博作者的用户信息字段 */
     var account : userAccountViewModel?
     /** 被转发的原微博信息字段，当该微博为转发微博时返回 */
@@ -47,6 +47,7 @@ class HomeModel: NSObject {
         }
         return false
     }
+
     
 
     
